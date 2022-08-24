@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    p::before {
+      content: "Xin chào, "
+    }
+    p::after {
+      content: " Linh.";
+    }
+    h2 {
+      display: inline; /* inline hoặc block hoặc ko có cũng dc, tuỳ chọn để chỉnh độ rộng cho hiệu ứng */
+      margin: 50px; /* căn lề cho nội dung vào trong màn hình */
+      padding: 10px; /* cho độ nở của nội dung bự ra để làm hiệu ứng bành ra đỡ bị hẹp */
+      color: black;
+      font-weight: bold;
+      position: relative; /* thằng cha làm chuẩn */
+      
+    }
+    h2:before {
+      content: ""; /* trước h2 sẽ có 1 content rỗng "" */ 
+      position: absolute; /* content "" sẽ căn theo cha để chạy */
+      top: 0; /* content bị đẩy lên trên */
+      left: auto; /* cho auto là để khi hover thì content "" tự động bị đẩy về bên trái h2 */
+      right: 0; /* content "" trước h2 lúc này cho nằm về vị trí bên phải của h2 */
+      width: 0; /* độ rộng là 0 trước khi hover */
+      height: 100%; /* độ cao bằng với thằng cha h2 */
+      background-color: #e74c3c;
+      transition: .25s;
+      z-index: -1;
+      border-radius: 50%;
+    }
+    /* Mặc định giá trị của z-index là auto và z-index chỉ hoạt động khi đi kèm với thuộc tính position.  */
+    
+    h2:hover:before { /* khi hover lên h2 thì thằng content "" dc đẩy lên trước h2 và sẽ có độ rộng bằng 100% thằng cha h2 */
+      width: 100%;
+      left: 0; /* content dc đẩy lên trước h2 */
+      right: auto; /* tự động content quay về bên phải (dòng này có thể bỏ vì trên có right: 0 rồi ) */ 
+    }
+    h2:hover {
+      color: white; /* muốn đổi màu chữ h2 khi hover thì phải viết riêng ra h2:hover, viết lên before (content "" trước h2) là ko đúng */
+    }
+    </style>
+  </head>
+  <body>
+    <p>tôi tên là</p>
+    <h2>Animation background</h2>
+    
+  </body>
+</html>

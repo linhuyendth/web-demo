@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="vi">
+  
+  <head>
+    <title>Thực hành CSS</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  
+  <body>
+    <div class="container-body">
+      <a class="pseudo-class" href="https://www.w3schools.com/css/css_pseudo_classes.asp">Tìm hiểu các class giả
+        css_pseudo_classes</a>
+      <h3>Simple Tooltip Hover</h3>
+      <p>Khi hover lên div sau thì một tip chú thích sẽ hiện ra.</p>
+      <div class="div-tooltip">
+        Hover over this div element to show the p element
+        <p class="p-tooltip">Tada! Here I am!</p>
+      </div>
+      <hr>
+      
+      <h3>Quote & :lang()</h3>
+      <p>Some text <q lang="dau-tuy-y"> A quote in a paragraph </q> Some text.</p>
+      <p>In this example, :lang defines the quotation marks for q elements with lang="dau-tuy-y"</p>
+      <p><strong>:lang()</strong> cho phép ta tự định nghĩa dấu chú thích ở 2 đầu đoạn văn chú thích tag q </p>
+      <hr>
+      
+      <h3>Jump to :target</h3>
+      <p><a class="jump" href="#news1">Jump to New content 1</a></p>
+      <p><a class="jump" href="#news2">Jump to New content 2</a></p>
+      
+      <p>Click on the links above and the :target selector highlight the current active HTML anchor.</p>
+      <p>Nhấp vào các liên kết ở trên và công cụ chọn mục tiêu <strong>:target</strong> sẽ neo đến liên kết HTML hiện đang hoạt động.
+      </p>
+      <p id="news1"><b>New content 1...</b></p>
+      <p id="news2"><b>New content 2...</b></p>
+      
+      <h3>CSS :target Selector</h3>
+      <div class="tab-hinh-anh">
+        <a href="#heart">Heart</a>
+        <a href="#travel">Travel</a>
+        <a href="#girl">Girl</a>
+        
+        <div id="heart">
+          <h3>Hình trái tim</h3>
+          <img class="hinhanh" src="image/heart.png" alt="Hình trái tim">
+        </div>
+        
+        <div id="travel">
+          <h3>Hình du lịch tốt nghiệp</h3>
+          <img class="hinhanh" src="image/ryokou.jpeg" alt="Hình du lịch tốt nghiệp">
+        </div>
+        
+        <div id="girl">
+          <h3>Hình cô gái anime</h3>
+          <img class="hinhanh" src="image/cogaianime.jpg" alt="Hình cô gái anime">
+        </div>
+      </div>
+      <hr>
+      
+      <h3>Modal :target</h3>
+      <!-- https://www.w3schools.com/cssref/tryit.asp?filename=trycss3_target_modal -->
+      <a href="#id01">Open Modal</a>
+      
+      <div id="id01" class="modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <header class="container">
+              <a href="#" class="closebtn">×</a>
+              <h2>Modal Header</h2>
+            </header>
+            <div class="container">
+              <p>Some text in the modal.</p>
+              <p>Some text in the modal.</p>
+            </div>
+            <footer class="container">
+              <p>Modal footer</p>
+            </footer>
+          </div>
+        </div>
+      </div>
+      <hr>
+    
+    
+    </div>
+  </body>
+
+</html>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+  <head>
+    <title>Thực hành Jquery</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+      .container1 {
+        width: 40%;
+        height: 200px;
+        float: right;
+      }
+
+      .container2 {
+        width: 40%;
+        height: 200px;
+        float: left;
+      }
+
+      #hideshow {
+        display: flex;
+      }
+
+      #panel,
+      #flip {
+        padding: 5px;
+        text-align: center;
+        background-color: lightcoral;
+        border: solid 1px #c3c3c3;
+      }
+
+      #panel {
+        padding: 50px;
+        display: none;
+      }
+
+      #panel2,
+      #flip2 {
+        padding: 5px;
+        text-align: center;
+        background-color: lightgreen;
+        border: solid 1px #3d6835;
+      }
+
+      #panel2 {
+        padding: 50px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div style="margin: 0 50px;">
+      <h2>Jquery Selector</h2>
+      <!-- select bằng tag -->
+      <p>Đây là đoạn văn thứ 1.</p>
+      <p>Đây là đoạn văn thứ 2.</p>
+      <button id="button1">Nhấn vào đây để ẩn các đoạn văn</button>
+      <script>
+        $(document).ready(function() {
+          $("#button1").click(function() {
+            $("p").hide();
+          });
+        })
+      </script>
+
+      <!-- select bằng id -->
+      <p>Đoạn văn này không có id.</p>
+      <p id="test">Đoạn văn này có id.</p>
+      <button id="button2">Nhấn vào đây sẽ ẩn đi đoạn văn chứa id</button>
+      <script>
+        $(document).ready(function() {
+          $("#button2").click(function() {
+            $("#test").hide();
+          });
+        })
+      </script>
+
+      <!-- select bằng class -->
+      <p>Đoạn văn này không có class.</p>
+      <p class="test">Đoạn văn này có class.</p>
+      <button id="button3">Nhấn vào đây sẽ ẩn đi đoạn văn chứa class</button>
+      <script>
+        $(document).ready(function() {
+          $("#button3").click(function() {
+            $(".test").hide();
+          });
+        })
+      </script>
+
+      <!-- select bằng href -->
+      <p><a href="#">Link 1</a></p>
+      <p><a href="#">Link 2</a></p>
+      <button id="btn4">Nhấn vào đây để ẩn các link</button>
+      <script>
+        $(document).ready(function() {
+          $("#btn4").click(function() {
+            $("[href]").hide();
+          });
+        })
+      </script>
+      <hr>
+      <h2>Event click, double click, mouseenter, mouseleave, hover, focus</h2>
+
+      <h4>Event click đã demo ở selector</h4>
+
+      <h4>Event double click</h4>
+      <span id="away" style="background-color: aqua;">Double click me to hide away!</span>
+      <script>
+        $(document).ready(function() {
+          $("p#away").dblclick(function() {
+            $(this).hide();
+          });
+        })
+      </script>
+
+      <h4>Event mouse enter</h4>
+      <span id="enter" style="background-color: yellow;">Trỏ vào tôi!</span>
+      <script>
+        $(document).ready(function() {
+          $("#enter").mouseenter(function() {
+            alert("Bạn vừa trỏ vào \"Trỏ vào tôi\"!");
+          });
+        })
+      </script>
+
+      <h4>Event mouse leave</h4>
+      <span id="leave" style="background-color: yellowgreen;">Khi bạn không trỏ chuột vào tôi nữa thì hiện thông
+        báo.</span>
+      <script>
+        $(document).ready(function() {
+          $("#leave").mouseleave(function() {
+            alert("Bye!");
+          });
+        })
+      </script>
+
+      <h4>Event hover là kết hợp của mouseenter và mouseleave</h4>
+      <span id="hover" style="background-color: burlywood;">Try hovering on me!</span>
+      <script>
+        $(document).ready(function() {
+          $("#hover").hover(function() {
+            alert("You entered span hover!");
+          },
+            function() {
+              alert("Bye! You now leave span hover!");
+            });
+        })
+      </script>
+
+      <h4>Event focus and blur(không còn tiêu điểm nữa) </h4>
+      Name: <input type="text" name="fullname"><br>
+      Email: <input type="text" name="email">
+      <script>
+        $(document).ready(function() {
+          $("input").focus(function() {
+            $(this).css("background-color", "pink");
+          });
+          $("input").blur(function() {
+            $(this).css("background-color", "gray");
+          });
+        })
+      </script>
+
+      <h4>Muốn kết hợp nhiều cái thì dùng on</h4>
+      <span id="kethop">Click or move the mouse pointer over this span.</span>
+      <script>
+        $(document).ready(function() {
+          $("span#kethop").on({
+            mouseenter: function() {
+              $(this).css("background-color", "pink");
+            },
+            mouseleave: function() {
+              $(this).css("background", "lightblue");
+            },
+            click: function() {
+              $(this).css("color", "white");
+            }
+          });
+        })
+      </script>
+      <hr>
+
+      <h2>Hàm hide, show, slideDown, slideUp</h2>
+      <p id="hideshow">Click thử các nút để tôi ẩn hiện.</p>
+      <button id="hide">Ẩn</button>
+      <button id="show">Hiện</button><br><br>
+      <script>
+        $(document).ready(function() {
+          $("#hide").click(function() {
+            $("#hideshow").hide("fast");
+          });
+          $("#show").click(function() {
+            $("#hideshow").show(3000);
+          });
+        })
+      </script>
+
+      <div class="container1">
+        <div id="flip">Click
+          to slide down panel</div>
+        <div id="panel">Hello world!</div>
+      </div>
+      <script>
+        $(document).ready(function() {
+          $("#flip").click(function() {
+            $("#panel").slideDown("slow");
+          });
+        })
+      </script>
+
+      <div class="container2">
+        <div id="flip2">Click
+          to slide up panel</div>
+        <div id="panel2">Hello Vietnam!</div>
+      </div>
+      <script>
+        $(document).ready(function() {
+          $("#flip2").click(function() {
+            $("#panel2").slideUp("slow");
+          });
+        })
+      </script>
+
+      <div class="container3">
+        <style>
+          .container3 {
+            clear: both;
+            margin: auto;
+            width: 40%;
+            height: 200px;
+          }
+
+          #panel3,
+          #flip3 {
+            padding: 5px;
+            text-align: center;
+            background-color: #e5eecc;
+            border: solid 1px #c3c3c3;
+          }
+
+          #panel3 {
+            padding: 50px;
+            display: none;
+          }
+        </style>
+        <div id="flip3">Click to slide the panel down or up</div>
+        <div id="panel3">Hello world!</div>
+        <script>
+          $(document).ready(function() {
+            $("#flip3").click(function() {
+              $("#panel3").slideToggle("slow");
+            });
+          });
+        </script>
+      </div>
+      <hr>
+      <p>Demonstrate fadeIn() with different parameters.<br>
+        Fade in xuất hiện dần dần trong HTML. Cho các div lúc đầu là display:none.</p>
+      <button id="btnfi">Click to fade in boxes</button><br><br>
+      <div id="div1" style="width:80px;height:80px;display:none;background-color:red;"></div><br>
+      <div id="div2" style="width:80px;height:80px;display:none;background-color:green;"></div><br>
+      <div id="div3" style="width:80px;height:80px;display:none;background-color:blue;"></div>
+      <script>
+        $(document).ready(function() {
+          $("#btnfi").click(function() {
+            $("#div1").fadeIn();
+            $("#div2").fadeIn("slow");
+            $("#div3").fadeIn(3000);
+          });
+        });
+      </script>
+      <p>Demonstrate fadeOut() with different parameters.<br>
+        Fade out biến mất dần dần khỏi HTML</p>
+      <button id="btnfo">Click to fade out boxes</button><br><br>
+      <div id="div4" style="width:80px;height:80px;background-color:red;"></div><br>
+      <div id="div5" style="width:80px;height:80px;background-color:green;"></div><br>
+      <div id="div6" style="width:80px;height:80px;background-color:blue;"></div>
+      <script>
+        $(document).ready(function() {
+          $("#btnfo").click(function() {
+            $("#div4").fadeOut();
+            $("#div5").fadeOut("slow");
+            $("#div6").fadeOut(3000);
+          });
+        });
+      </script>
+      <p>Fadeto là hiển thị hoặc mờ dần đi đến một opacity mà mình chỉ định trong param.</p>
+      <p>By default, all HTML elements have a static position, and cannot be moved.
+        To manipulate the position, remember to first set the CSS position property of the element to relative, fixed,
+        or absolute!</p>
+      <p>Is it possible to manipulate ALL CSS properties with the animate() method?
+
+        Yes, almost! However, there is one important thing to remember: all property names must be camel-cased when used
+        with
+        the animate() method: You will need to write paddingLeft instead of padding-left, marginRight instead of
+        margin-right,
+        and so on.
+
+        Also, color animation is not included in the core jQuery library.
+        If you want to animate color, you need to download the Color Animations plugin from jQuery.com.</p>
+    </div>
+  </body>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+
+            /* VD 1: Dùng flexible boxes để khi kéo browser thì nội dung trong box không bị tràn xuống ra khỏi box */
+            .flex-container-vd1 {
+                display: flex;
+                flex-wrap: nowrap; /* để cho 2 box không bị wrap xuống khi thu hẹp trình duyệt */
+                background-color: aqua;
+            }
+
+            .flex-container-vd1 .box {
+                background-color: #f1f1f1;
+                width: 50%;
+                margin: 10px;
+                text-align: center;
+                line-height: 75px;
+                font-size: 30px;
+            }
+
+            /* VD2: Dàn bố cục mà không cần dùng float hay position */
+            .flex-container-vd2 {
+                display: flex;
+                flex-wrap: nowrap;
+                background-color: DodgerBlue;
+                justify-content: center;
+            }
+
+            .flex-container-vd2 > div {
+                background-color: #f1f1f1;
+                width: 100px;
+                margin: 10px;
+                text-align: center;
+                line-height: 75px;
+                font-size: 30px;
+            }
+
+
+        </style>
+    </head>
+    <body>
+        <!-- Ví dụ 1 minh hoạ khi kéo nhỏ lại trình duyệt thì chữ sẽ như thế nào với hộp chứa linh hoạt -->
+        <h1>Flexible Boxes</h1>
+
+        <div class="flex-container-vd1">
+            <div class="box">Box 1 - This is some text to make sure that the content gets really tall. This is some text to make sure that the content gets really tall.</div>
+            <div class="box">Box 2 - My height will follow Box 1.</div>
+        </div>
+
+        <p>Try to resize the browser window to see the flexible layout.</p>
+        <p><strong>Note:</strong> Flexbox is not supported in Internet Explorer 10 or earlier versions.</p>
+
+        <!-- Ví dụ 2 minh hoạ sự linh hoạt của flexible boxes khi dàn bố cục responsive mà không cần sử dụng float hay position -->
+        <div class="flex-container-vd2">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>  
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>  
+            <div>7</div>
+            <div>8</div>
+        </div>
+
+        <p>Try to resize the browser window.</p>
+        <p>A container with "flex-wrap: nowrap;" will never wrap its items.</p>
+        <p><strong>Note:</strong> Flexbox is not supported in Internet Explorer 10 or earlier versions.</p>
+    </body>
+</html>

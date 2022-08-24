@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8">
+    <title>Bài tập buổi 2</title>
+    <link rel="stylesheet" href="css/mystyle.css">
+  </head>
+  <body>
+    
+    <fieldset>
+      <h1>EXERCISE 1: Box Model</h1>
+      <div class="ques1">
+        This element has a margin of 70px.
+      </div>
+      <div class="ques2">
+        This element has a padding of 70px.
+      </div>
+      <div class="parent">
+        <p style="border: 1px solid green">I am vertically centered.</p>
+        <!-- p nằm trong div nên kế thừa độ rộng của div -->
+      </div>
+      <!-- 2 div dưới đây dc ưu tiên inline thành màu đỏ mặc dù có style green ở trên -->
+      <div class="ques1" style="border-color: red">
+        Div này sử dụng thuộc tính margin.
+      </div>
+      <div class="ques2" style="border-color: red">
+        Div này sử dụng thuộc tính padding.
+      </div>
+    </fieldset><br>
+
+    <fieldset>
+      
+      <h1>EXERCISE 2: Custom CSS</h1>
+      <h2>Bài 01: Sử dụng các tag cơ bản</h2>
+      <div class="text-indent01">
+        <h3><u>Yêu cầu</u></h3>
+        <h4>Thiết kế trang web có nội dung như sau:</h4>
+      </div>
+      <div class="text-center">
+        <p>Lập trình Web</p>
+        <p>Chào mừng các bạn đến với ngôn ngữ HTML</p>
+      </div>
+      <hr style="width: 800px; margin-bottom: 20px">
+
+      <h2 style="color: #60BB71">Bài 02: Sử dụng các tag cơ bản (tt)</h2>
+      <div class="text-indent02">
+        <h3 style="color: blue"><u>Yêu cầu</u></h3>
+        <h4>Thiết kế trang web có nội dung như sau:</h4>
+      </div>
+      <p style="width: 600px; margin-left: 320px; background-color: pink; text-align: center; color: #CF0B88">MẸ!</p>
+      <div style="width: 600px; margin-left: 320px; background-color: #F7F39D; text-align: center">
+        <hr style="border-style: none">
+        <div style="line-height: 50%; color: blue">
+          <p>Mẹ là cả một trời thương</p>
+          <p>Mẹ là cả một thiên đường trần gian</p>
+          <p>Công ơn cha mẹ tựa biển trời</p>
+        </div>
+        <hr style="width: 300px">
+        <div style="line-height: 50%; color: red">
+          <p>Làm sao báo hiếu hỡi người ơi?</p>
+          <p>Nếu chưa báo hiếu đừng bất hiếu</p>
+          <p>Bất hiếu làm ta khổ muôn đời</p>
+        </div>
+        <hr style="width: 300px">
+        <div style="line-height: 50%; color: green">
+          <p>Một đời vốn liếng mẹ trao</p>
+          <p>Mẹ cho tất cả mẹ nào giữ riêng</p>
+          <p>Mẹ hiền như một bà tiên</p>
+          <p>Mẹ theo con suốt hành trình con đi</p>
+        </div>
+        <hr style="border-style: none">
+      </div>
+      <hr style="width: 800px; margin-bottom: 20px">
+
+      <h2>Định dạng văn bản</h2>
+      <div style="width: 600px; margin-left: 320px">
+        <b><u>Hoá học:</u></b>
+        <i> Nước: </i><span style="color: red">H<sub>2</sub>O ;</span>
+        <i> Axit Sunfuric: </i><span style="color: red">H<sub>2</sub>SO<sub>4</sub></span>
+        <br><br>
+        <b><u>Toán học:</u></b>
+        <i> Phương trình bậc 2: </i><span style="color: red">ax<sup>2</sup> + bx + c = 0</span>
+        <br><br>
+        <b><u>Tin học:</u></b>
+        <i> Vòng lặp For: </i>
+      </div>
+      <div style="width: 600px; margin-left: 320px; text-indent: 280px; background-color: lightgray">
+        <p>For i = 0 to 10</p>
+        <p style="text-indent: 320px">Tong = Tong + 1</p>
+        <p>Next</p>
+      </div>
+      <hr style="width: 800px; margin-bottom: 20px">
+
+      <h2 style="color: #F71E69">Công ty Hoa tươi Nhân Ái<img style="width: 25%; padding: 0 473px" src="image/kisspng.png" alt="Băng dây"></h2>
+      <div style="width: 650px; margin: auto; overflow: hidden; line-height: 1.6;">
+        <img style="float: left; box-sizing: border-box; width: 20%;" src="image/rose.png" alt="Hoa hồng">
+        <div style="float: left; box-sizing: border-box;">
+          <ol>
+            <li><span style="background-color:#fa77a5">Giới thiệu:</span></li>
+              <ul list-style-type=circle>
+                <li>Thành lập ngày 25/05/2007</li>
+                <li>Chuyên cung cấp các loại hoa tươi</li>
+                <li>Có trên 20 cửa hàng bán lẻ tại TPHCM</li>
+                <li>Nhận kết giỏ hoa theo yêu cầu của khách hàng</li>
+              </ul> 
+              <hr>
+            <li><span style="background-color:#fa77a5">Liên hệ:</span></li>
+              <ul list-style-type=circle>
+                <li>Điện thoại: 5555555555</li>
+                <li>Địa chỉ: 227 Nguyễn Văn Cừ</li>
+              </ul>
+          </ol>
+          <footer>
+            <span style="color: #a32976">&copy; Copyright: </span>
+            <span style="color: blue;"><b><u>Trung Tâm Tin Học - Đại Học Khoa Học Tự Nhiên TPHCM</u></b>
+              </span>
+          </footer>
+        </div>
+      </div><br>
+      <hr style="width: 800px; margin-bottom: 20px">
+      
+
+      <div style="width: 1000px; margin: auto; background-color: #ecd7c3; overflow: hidden; padding: 0 30px; border-radius: 10%;">
+        <h2 style="color: #ee5b05; font-size: 40px;">Các món ngon Hà Nội</h2>
+        <img src="image/food.png" alt="Thức ăn" style="float: left; box-sizing: border-box;width: 50%; vertical-align: 300px; padding: 0 30px 25px 0;"><br><br>
+        <table id="t01" style="float: left; box-sizing: border-box; width: 50%; font-size: larger;">
+          <thead>
+            <th>STT</th>
+            <th>Tên Món Ăn</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Bánh cuốn Thanh Trì</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Xôi Hà Nội</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Chả cá Lã Vọng</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Cháo cốc</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Bánh gai Ninh Giang</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>Bún Thang Hà Nội</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>Canh Lắng</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>Vịt quay Lạng Sơn</td>
+            </tr>
+          </tbody>
+        </table>
+      </div><br>
+      <hr style="width: 800px; margin-bottom: 20px">
+
+      <h2 style="color:#0c5e49;">Chương trình học - Ngành lập trình</h2>
+      <table id="t02" style="border: 2px solid #153b05; margin: auto;" >
+        <thead style="background-color:#398f79; color: white; text-align: center;">
+          <tr>
+            <th rowspan="2">Nhóm học phần</th>
+            <th rowspan="2">Môn học</th>
+            <th colspan="2">Số tiết</th>
+          </tr>
+          <tr>
+            <th>Lý thuyết</th>
+            <th>Thực hành</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th style="text-align: center;" rowspan="6">I<br>Tin học văn phòng</th>
+            <td>Hệ điều hành Windows</td>
+            <td>3</td>
+            <td>5</td>
+          </tr>
+          <tr>
+            <td>Sử dụng Internet</td>
+            <td>3</td>
+            <td>5</td>
+          </tr>
+          <tr>
+            <td>Soạn thảo văn bản với MS Word</td>
+            <td>24</td>
+            <td>40</td>
+          </tr>
+          <tr>
+            <td>Tạo bài trình diễn với MS Power Point</td>
+            <td>9</td>
+            <td>15</td>
+          </tr>
+          <tr>
+            <td>Xử lý dữ liệu với MS Excel</td>
+            <td>24</td>
+            <td>40</td>
+          </tr>
+          <tr>
+            <td>Tạo trang web với MS Fontpage</td>
+            <td>9</td>
+            <td>15</td>
+          </tr>
+          <tr>
+            <th style="text-align: center;" rowspan="2">II<br>Kỹ thuật lập trình (VB.NET)</th>
+            <td>Nhập môn lập trình</td>
+            <td>36</td>
+            <td>60</td>
+          </tr>
+          <tr>
+            <td>Kỹ thuật lập trình</td>
+            <td>36</td>
+            <td>60</td>
+          </tr>
+          <tr><td colspan="4"><b>......</b></td></tr>
+        </tbody>
+      </table><br>
+      <hr style="width: 800px; margin-bottom: 20px">
+
+      <h2 style="color: #176ec0;">Phiếu đăng ký tham gia chương trình khuyến mãi</h2>
+      <table id="t03" style="width: 500px; margin: auto">
+        <tr>
+          <td>Họ tên</td>
+          <td><input type="text" name="fullname" id="" placeholder="Nhập họ tên" autofocus required></td>
+        </tr>
+        <tr>
+          <td>Địa chỉ</td>
+          <td><input type="text" name="address" id="" placeholder="Nhập địa chỉ" required></td>
+        </tr>
+        <tr>
+          <td>Điện thoại</td>
+          <td><input type="tel" name="tel" id="" placeholder="Nhập số điện thoại" required></td>
+        </tr>
+        <tr>
+          <td>Giới tính</td>
+          <td><input type="radio" name="gender" value="Nam" checked>Nam <input type="radio" name="gender" value="Nữ">Nữ</td>
+        </tr>
+        <tr>
+          <td>Nghề nghiệp</td>
+          <td><select name="work">
+            <option value="teacher" >Giáo viên</option>
+            <option value="student">Sinh viên</option>
+            <option value="officer">Nhân viên</option>
+            <option value="homemaker">Nội trợ</option>
+          </select></td>
+        </tr>
+        <tr>
+          <td>Chọn sản phẩm tham gia</td>
+          <td><input list="products" name="products" size="4">
+            <datalist id="products">
+              <option value="Kem đánh răng"></option>
+              <option value="Bột giặt"></option>
+              <option value="Dầu gội đầu"></option>
+              <option value="Sữa tắm"></option>
+            </datalist>
+          </td>
+        </tr>
+        <tr>
+          <td>Số người dự đoán tham gia</td>
+          <td><input type="number" name="joinerAmount" id="" placeholder="250000"></td>
+        </tr>
+        <tr><td colspan="2" style="text-align: center"><input type="submit" value="Đồng ý"></td></tr>
+      </table><br>
+      <hr style="width: 800px; margin-bottom: 20px">
+      
+      <div style="width: 700px; margin: auto; background-color: #c4f3de; border-radius: 50px; padding: 10px 40px 40px;">
+        <h1 style="color: #1b1ba3; padding-bottom: 15px; letter-spacing: 2px; text-transform: capitalize; word-spacing: 10px;">Việc đọc sách</h1>
+        <h3 style="color: #1b1ba3;"> I. Đọc sách giúp rèn luyện ngôn ngữ.</h3>
+        <p style="text-indent: 30px; text-align: justify;"><b>Vốn từ vựng được mở rộng: </b>Điều này đi liền với lợi ích: bạn đọc càng nhiều, càng được tiếp xúc với nhiều từ ngữ, chắc chắn rằng tất cả sẽ đi vào vốn từ vựng hằng ngày của bạn. Ăn nói lưu loát và khéo léo giúp ích rất nhiều trong bất kì ngành nghề nào, và nếu bạn có thể nói chuyện với sự tự tin, có nghĩa là lòng tự trọng của bạn đã được nâng cao lên rất nhiều. Điều này có thể hỗ trợ rất tốt cho sự nghiệp của bạn, như những người đọc nhiều hiểu rộng, ăn nói khéo léo, và am hiểu về nhiều chủ đề có khuynh hướng được thăng chức nhanh hơn (và thường xuyên hơn) so với những người có vốn từ hạn chế và thiếu nhận thức về văn học, đột phá khoa học, hay các sự kiện toàn cầu. Đọc sách cũng rất quan trọng trong việc học một ngôn ngữ mới, như khi bạn tiếp xúc với nhiều từ ngữ được sử dụng trong từng bối cảnh cụ thể, sẽ cải thiện kỹ năng nói và viết của mình lưu loát hơn.</p>
+        <h3 style="color: #1b1ba3;"> II. Bài kết thúc.</h3>
+        <p style="text-indent: 30px; text-align: justify"><b>Cải thiện trí nhớ: </b>Khi bạn đọc một cuốn sách, bạn phải nhớ từng nhân vật, nguồn gốc của họ, tham vọng, lịch sử và sắc thái, cũng như các
+        chi tiết liên quan đến nhân vật trong mỗi câu chuyện. Có khá nhiều điều để nhớ nhưng não là một bộ phận tuyệt vời. Nó có
+        thể nhớ mọi thứ tương đối dễ dàng. Thật ngạc nhiên là mỗi bộ nhớ mới mà bạn tạo ra sẽ liên kết với các dây thần kinh mới
+        (chuỗi phản ứng hoá sinh trong não bộ) và tăng cường những cái đã có. Hỗ trợ trí nhớ ngắn hạn và giữ cân bằng tâm trạng.</p><br>
+        <img src="https://i.pinimg.com/564x/83/bd/42/83bd42b9267c6f99d61702b121824267.jpg" alt="Việc đọc sách" style="border-radius: 50px; display: block; margin-left: auto; margin-right: auto;">
+      </div>
+    </fieldset>
+  </body>
+</html>

@@ -1,0 +1,119 @@
+.navbar {
+  padding: 20px 0;
+}
+
+a .navbar-brand {
+  position: relative;
+}
+
+.logo-header {
+  width: 200px;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 10.2%;
+  -ms-transform: translate(-10.2%,-50%);
+  transform: translate(-10.2%, -50%);
+}
+
+.task {
+  background: #e8eaec;
+  color: gray;
+  padding: 0 24px;
+  display: inline-block;
+  margin: 10px 0 20px 0;
+  border-radius: 3px;
+  
+}
+
+.offset-1 {
+  max-width: 100%;
+  margin-left: 4%;
+  margin-right: 0;
+}
+
+h3 {
+  color: gray;
+  font-size: 16px;
+}
+
+.jumbotron {
+  background: none;
+  border: 2px solid #d5d8dd;
+}
+
+.soluong {
+  border: 1px solid gray;
+  padding: 0 6px;
+  border-radius: 5px;
+}
+
+.tenweb {
+  display: inline-block;
+  padding: 0 5px;
+  width: 60%;
+}
+
+.tenweb-right {
+  display: inline;
+  width: 40%;
+}
+
+.total {
+  text-align: right;
+  color: gray;
+}
+
+.duoisub {
+  text-align: right;
+  padding-top: 10px;
+}
+
+h4 {
+  color: #009452;
+  font-size: 16px;
+  text-indent: 40px;
+  padding-bottom: 10px;
+}
+
+ul li {
+  list-style-type: none;
+  height: 40px;
+}
+
+a {
+  color: #505b70;
+  display: block;
+  height: 40px;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #009452;
+}
+
+.jumbotron-fluid {
+  border: 1px solid #dbdbdb;
+  border-left: none;
+  border-right: none;
+  padding: 50px 100px;
+}
+
+.logo-footer {
+  width: 200px;
+  margin-bottom: 30px;
+}
+
+div .d-sm-inline ul li {
+  float: left;
+}
+
+.chu-footer {
+  color: #cecece;
+}
+
+.icon {
+  text-indent: 3px;
+  color:#4E586C;
+  font-size: smaller;
+}

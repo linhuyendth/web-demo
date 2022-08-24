@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<title>Hiệu Ứng Hover Cho Danh Sách</title>
+			<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;700&display=swap" rel="stylesheet">
+			<style>
+				* {
+					margin: 0;
+					padding: 0;
+					box-sizing: border-box;
+					font-family: Roboto;
+				}
+				
+				
+				body {
+					display: flex;
+					justify-content: center; /* đưa danh sách ra chính giữa màn hình */
+					align-items: center; /* gộp các bộ phận lại */
+					min-height: 100vh;
+					background: #f6f6f6;
+				}
+				/* Resize the height of the browser window to see how the body changes. 1vh = 1% of viewport height. */
+				
+				.container {
+					width: 400px;
+					border-bottom: 20px solid #03a9f4;
+					border-bottom-left-radius: 10px;
+					border-bottom-right-radius: 10px;
+				}
+				
+				/* Thiết lập style cho thẻ h2 */
+				.container h2 {
+					color: #fff; /* là màu trắng */
+					background:  #03a9f4;
+					padding: 10px 20px;	
+					font-size: 20px;
+					font-weight: 700;
+					border-top-left-radius: 10px;
+					border-top-right-radius: 10px;
+				}
+				
+				/* Thiết lập style cho thẻ ul */
+				.container ul {
+					position: relative; /* thẻ ul là cha làm chuẩn */
+					background: #fff;
+				}
+				
+				/* Thiết lập style cho thẻ li */
+				.container ul li {
+					list-style: none; /* mất dấu chấm tròn */
+					padding: 10px; /* cho giãn nở chồng li ra */
+					width: 100%;
+					background: #fff;
+					box-shadow: 0 5px 15px rgba(0, 0, 0, .1);
+					transition: transform 0.5s; /* transition: chuyển tiếp cho mượt mà khi hover */
+					}
+					/* box-shadow: The first value is the horizontal offset (độ lệch, sai trục). The second value is the vertical offset. Giá trị thứ 3 là blur. Giá trị thứ 4 là giãn nở bóng đổ. The shadow color will be inherited from the text color. https://www.w3schools.com/cssref/css3_pr_box-shadow.asp */
+					/* https://www.w3schools.com/cssref/playdemo.asp?filename=playcss_box-shadow */
+					
+					/* Thiết lập style cho số của thẻ span trong danh sách con */
+					.container ul li span {
+						width: 40px;
+						height: 40px;
+						text-align: center;
+						line-height: 40px;
+						background: #25bcff;
+						color: #fff;
+						display: inline-block; /* hiển thị màu bg trong width height thành hình vuông*/
+						border-radius: 50%; /* để biến vuông thành hình tròn */
+						margin-right: 40px; /* cho lề span cách phải chữ li */
+						font-size: 16px;
+						font-weight: bold;
+					}
+					
+					/* Thiết lập hiệu ứng khi hover (rê chuột) */
+					.container ul:hover li {
+						opacity: 0.2; /* khi hover lên ul thì các li sẽ mờ đục đi 20% */
+					}
+					.container ul li:hover { /* khi hover lên 1 li thì li đó sẽ: */
+						transform: scale(1.1); /* biến hình kiểu phình to ra 110% */
+						z-index: 10; /* thứ tự hiện lên */
+						background: #25bcff;
+						box-shadow: 0 5px 25px rgba(0,0,0,.2);
+						color: #fff;
+						opacity: 1; /* từ mờ đục 20% ở trên chuyển thành tỏ rõ 100% */
+					}
+					.container ul li:hover span { /* khi hover lên 1 li thì span số sẽ có hiệu ứng ngược lại với lúc bình thường */
+						background: #fff;
+						color: #25bcff;
+					}
+			</style>
+		</head>
+	<body>
+		<div class="container">
+			<h2>Hiệu Ứng Hover Cho Danh Sách</h2>
+			<ul>
+				<li><span>1</span> Phần Tử Thứ 1</li>
+				<li><span>2</span> Phần Tử Thứ 2</li>
+				<li><span>3</span> Phần Tử Thứ 3</li>
+				<li><span>4</span> Phần Tử Thứ 4</li>
+				<li><span>5</span> Phần Tử Thứ 5</li>
+				<li><span>6</span> Phần Tử Thứ 6</li>
+				<li><span>7</span> Phần Tử Thứ 7</li>
+				<li><span>8</span> Phần Tử Thứ 8</li>
+			</ul>
+		</div>
+	</body>
+</html>

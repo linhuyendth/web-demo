@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tạo thử web responsive</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    /* Tất cả đều có thuộc tính border-box */
+    * {
+      box-sizing: border-box;
+    }
+    
+    /* Style the body */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      background: #1abc9c;
+      color: white;
+    }
+    .header img {
+      width: 100%;
+    }
+
+    /* Style the top navigation bar */
+    .navbar {
+      overflow: hidden;
+      display: flex;
+      background-color: #333;
+      /* align-items: baseline; */ /* có thể cho căn theo baseline, ở dưới ko cần margin-top nữa */
+    }
+    
+    /* Style the navigation bar links */
+    .navbar a {
+      color: white;
+      padding: 14px 20px;
+      text-decoration: none;
+      text-align: center; /* text-align center để khi kéo nhỏ màn hình thì các links sẽ nằm giữa */
+    }
+    
+    /* Change the color of links on hover */
+    .navbar a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+    
+    /* Style the "active" element to highlight the current page */
+    /* .navbar a.active {
+      background-color: cadetblue;
+      color: white;
+    } */
+    
+    /* Thanh tìm kiếm */
+    .navbar .search-container {
+      margin-left: auto; /* push về 2 bên phải */
+    }
+    .navbar input[type=text] {
+      padding: 7px;
+      margin-top: 8px; /* cho lề trên để đẩy thanh search vào giữa */
+      font-size: 17px;
+      border: none;
+      border-top-left-radius: 3px;
+      border-bottom-left-radius: 3px;
+    }
+    .navbar .search-container button {
+      float: right; /* cho nút bấm nằm dính ngay sau thanh search, ko bị cách ra */
+      padding: 7px 10px; /* độ rộng của nút search */
+      margin-top: 8px; /* cho lề trên để đẩy thanh search vào giữa */
+      margin-right: 20px; /* cho lề phải để nút search ko dính vào mép trang */
+      background: #ddd;
+      font-size: 17px;
+      border: none;
+      cursor: pointer;
+      border-top-right-radius: 3px;
+      border-bottom-right-radius: 3px;
+    }
+    .navbar .search-container button:hover {
+      background: #ccc;
+    }
+    /* Responsive cho searchbar */
+    @media screen and (max-width: 700px) {
+      .navbar a, .navbar input[type=text], .navbar .search-container button {
+        text-align: center;
+        width: 100%;
+        margin: 0;
+        padding: 14px;
+      }
+      .navbar .search-container {
+        width: 100%;
+      }
+      .navbar input[type=text] {
+        border: 1px solid #ccc;  
+      }
+    }
+    
+    /* Column container */
+    .row {
+      display: flex;
+      flex-wrap: wrap; /* flex-wrap? */
+    }
+    
+    /* Create two unequal columns that sits next to each other */
+    /* Sidebar/left column */
+    .side {
+      flex: 30%;
+      background-color: #f1f1f1;
+      padding: 20px;
+    }
+    
+    /* Main column */
+    .main {
+      flex: 70%;
+      background-color: white;
+      padding: 20px;
+    }
+    
+    .img {
+      width: 100%;
+    }
+    /* width: 50% hình sẽ có kích thước bằng 1/2 cột đã chia */
+
+    /* Footer */
+    .footer {
+      padding: 20px;
+      text-align: center;
+      background: rgb(189, 186, 186);
+    }
+
+    /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 700px) {
+      .row, .navbar {
+        flex-direction: column;
+      }
+    }
+    
+    /* Nút bấm lên đầu trang */
+    #myBtn {
+      display: none;
+      position: fixed;
+      bottom: 20px; /* từ dưới trang cách lên 20px*/
+      right: 20px; /* từ bên phải trang cách ra 20px*/
+      z-index: 99; /* để chắc chắn nó ko bị element khác đè lên */
+      font-size: 30px;
+      border: none;
+      outline: none;
+      background-color: #e4e1e4;
+      color: #eff3f2;
+      cursor: pointer;
+      padding: 10px;
+      border-radius: 50%;
+    }
+
+    #myBtn:hover {
+      background-color: #fcc9fc;
+    }
+  </style>
+
+</head>
+<body>
+  <!-- Resize the browser window to see the responsive effect. -->
+
+  <!-- Header -->
+  <div class="header">
+    <!-- <h1>My Website</h1>
+    <p>With a <b>flexible</b> layout</p> -->
+    <img src="image/cogaitrenmatnuoc-banner.jpg" alt="banner">
+  </div>
+
+  <!-- Navigation Bar: thanh điều hướng and search-->
+  <div class="navbar">
+    <a href="#home" class="active">Home</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+    <div class="search-container">
+      <form action="/action_page.php">
+        <input type="text" placeholder="Search.." name="search">
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </form>
+    </div>
+  </div>
+  
+  <!-- The flexible grid (content) nội dung hiển thị dạng lưới linh hoạt -->
+  <div class="row">
+
+    <div class="side">
+      <h2>About Me</h2>
+      <h5>Photo of me:</h5>
+      <img class="img" src="image/zenitsu.jpg" alt="ảnh về tôi">
+      <p>Giới thiệu bản thân: tôi tên là Linh, 28 tuổi.</p>
+      <h3>More Text</h3>
+      <p>Các hình yêu thích của tôi.</p>
+      <img class="img" style="width: 30.33%;" src="image/heart.png" alt="ảnh về tôi">
+      <img class="img" style="width: 30.33%;" src="image/heart.png" alt="ảnh về tôi">
+      <img class="img" style="width: 30.33%;" src="image/heart.png" alt="ảnh về tôi">
+    </div>
+    
+    <div class="main">
+      <h2>TITLE HEADING</h2>
+      <h5>Title description, Dec 7, 2022</h5>
+      <img class="img" src="image/bg-anime-1.jpg" alt="ảnh về tôi">
+      <p>Some text..</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, itaque qui assumenda minus earum eaque? Eos hic praesentium omnis repellat accusantium doloribus nulla, laboriosam itaque cumque adipisci sed repudiandae officiis.</p>
+      <br>
+      <h2>TITLE HEADING</h2>
+      <h5>Title description, Dec 8, 2022</h5>
+      <img class="img" src="image/bg-anime-2.jpg" alt="ảnh về tôi">
+      <p>Some text..</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, itaque qui assumenda minus earum eaque? Eos hic praesentium omnis repellat accusantium doloribus nulla, laboriosam itaque cumque adipisci sed repudiandae officiis.</p>
+    </div>
+  </div>
+  
+  <!-- Footer -->
+  <div class="footer">
+    <h2>Footer</h2>
+  </div>
+
+</body>
+
+<button onclick="topFunction()" id="myBtn" title="Go to top">🔝</button>
+
+<script>
+  // Get the button
+  var mybutton = document.getElementById("myBtn");
+
+  // When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function() {scrollFunction()};
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
+    }
+  }
+
+  // When the user clicks on the button, scroll to the top of document
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+</script>
+</html>

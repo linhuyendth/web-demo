@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Tạo bảng</title>
+    <style media="screen">
+      table, th, td {
+        border: 1px solid orange;
+        border-collapse: collapse;
+      }
+      th, td {
+        padding: 15px;
+      }
+      th {
+        text-align: left;
+      }
+
+      table {
+        border: 3px solid red;
+        border-spacing: 15px;
+      }
+
+      p.dashed {border-style: dashed;}
+      p.dotted {border-style: dotted;}
+      p.solid {border-style: solid;}
+      p.double {border-style: double;}
+      p.groove {border-style: groove;}
+      p.ridge {border-style: ridge;}
+      p.inset {border-style: inset;}
+      p.outset {border-style: outset;}
+      p.hidden {border-style: hidden;}
+      p.mix {border-style: dotted dashed solid double;}
+
+      h3 {
+        width: 50%;
+        text-align: center;
+        border-style: dashed;
+        border-width: thin;
+        color: blue;
+        font-family: Algerian;
+      }
+
+      div {
+        line-height: 1.6;
+      }
+
+      p {
+        text-indent: 50px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <h3>This is my table</h3>
+    <table width="50%" border="1px">
+      <tr style="background-color:yellow">
+        <th style="color:red">Company</th>
+        <th style="color:green">Contact</th>
+        <th style="color:blue">Country</th>
+      </tr>
+      <tr>
+        <td>Công ty ABC</td>
+        <td>Nguyen Linh</td>
+        <td>Vietnam</td>
+      </tr>
+      <tr>
+        <td>Công ty XYZ</td>
+        <td>Nguyen Hai</td>
+        <td>Vietnam</td>
+      </tr>
+      <tr>
+        <td colspan="2">1</td>
+        <td rowspan="2">2</td>
+      </tr>
+      <tr>
+        <td>AAAAAA</td>
+        <td>BBBBBB</td>
+      </tr>
+    </table>
+    Áp dụng rowspan:<br>
+    <table style="width:50%">
+      <tr>
+        <th style="width:30%">Name:</th>
+        <td>Bill Gates</td>
+      </tr>
+      <tr>
+        <th rowspan="2">Telephone:</th>
+        <td>55531566</td>
+      </tr>
+      <tr>
+        <td>51644755</td>
+      </tr>
+    </table>
+
+    <p class="dashed">dashed</p>
+    <p class="dotted">dotted</p>
+    <p class="solid">solid</p>
+    <p class="double">double</p>
+    <p class="groove">groove</p>
+    <p class="ridge">ridge</p>
+    <p class="inset">inset</p>
+    <p class="outset">outset</p>
+    <p class="mix">mix</p>
+
+    <div>
+      Cho một mảng các số nguyên n phần tử arr.<br>
+      Bạn hãy viết chương trình sắp xếp các phần tử của mảng<br>
+      theo thứ tự tăng dần và hiển thị ra màn hình mảng sau khi đã sắp xếp.
+    </div>
+
+    <p>Cho một mảng các số nguyên n phần tử arr.<br>
+      Bạn hãy viết chương trình sắp xếp các phần tử của mảng theo thứ tự tăng dần<br>
+      và hiển thị ra màn hình mảng sau khi đã sắp xếp.</p>
+
+  </body>
+</html>

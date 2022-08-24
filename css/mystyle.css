@@ -1,0 +1,89 @@
+body {
+    background-color: #FAF8E6;
+}
+
+h1 {
+    color: tomato;
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+fieldset {
+    border-color: blue;
+}
+
+/* QUESTION: EXERCISE 1: Box Model */
+/* QUESTION 1: content dc bao bởi khung và cách lề 4 phía 70px */
+.ques1 {
+    margin: 70px;
+    border: 1px solid green;
+}
+
+/* QUESTION 2: content dc đệm 4 phía 70px rồi mới dc bo khung */
+.ques2 {
+    padding: 70px;
+    border: 1px solid green;
+}
+
+/* QUESTION 2': content nằm trong p dc bao khung, mà p thì lại thuộc div */
+.parent {
+    width: 170px;
+    /* cho ngắn bớt lại */
+    padding: 30px 0;
+    border: 1px solid red;
+    margin: auto;
+    /* căn giữa cho đẹp */
+}
+
+/* QUESTION: EXERCISE 2: Custom CSS */
+/* QUESTION 1: Thiết kế lại như hình */
+.text-center {
+    text-align: center;
+    line-height: 0.6;
+}
+
+.text-indent01 {
+    text-indent: 320px;
+    line-height: 0.6;
+}
+
+.text-indent02 {
+    text-indent: 320px;
+    line-height: 0.6;
+}
+
+table, thead, tbody, th, td {
+    border: 1px solid #75450d;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px 30px;
+    text-align: left;
+}
+
+table#t01 tr:nth-child(odd) {
+    background-color: #fffaf6;
+}
+
+table#t01 th {
+    background-color: #ee5b05;
+    color: white
+}
+
+table#t02 th  {
+    text-align: center;
+}
+
+table#t03 {
+    background-color: #c6d7e7;
+    color: #176ec0;
+    border: 2px solid blue;
+}
+
+table#t03 tr:nth-child(odd) {
+    background-color: #fffaf6;
+}

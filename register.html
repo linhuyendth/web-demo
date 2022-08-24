@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8">
+    <title>Làm form đăng ký</title>
+  </head>
+  <body>
+    <fieldset style="width:30%; margin: auto; background-image: linear-gradient(red, yellow, green);">
+      <h1>Register</h1>
+      <i>Please <b>fill in this form</b> to create an account.</i><br><br>
+      <div>
+        <span>Fullname </span><span style="color: red">*</span>
+      </div>
+      <input type="text" name="fullname" autofocus required placeholder="Input your fullname..."><br><br>
+      <div>
+        <span>Username </span><span style="color: red">*</span>
+      </div>
+      <input type="text" name="username" required placeholder="Input your username..."><br><br>
+      <div>
+        <span>Password </span><span style="color: red">*</span>
+      </div>
+      <input type="password" name="password" required autocomplete="on" placeholder="Input your password..."><br><br>
+      <div>
+        <span>Email </span><span style="color: red">*</span>
+      </div>
+      <input type="text" name="email" required autocomplete="on" placeholder="Input your email..."><br><br>
+      <div>
+        <span>Telephone number </span><span style="color: red">*</span>
+      </div>
+      <input type="text" name="telenum" required placeholder="Input your phone number..."><br><br>
+
+      Input Object: <br>
+      <input type="radio" name="object" value="student" checked>Student
+      <input type="radio" name="object" value="teacher">Teacher
+      <br><br>
+      Favorite: <br>
+      <input type="checkbox" name="favorite" value="badminton">Badminton
+      <input type="checkbox" name="favorite" value="volleyball">Volleyball
+      <input type="checkbox" name="favorite" value="football">Football
+      <br><br>
+      Address: <br>
+      <select class="" name="address">
+        <option value="TPHCM">TPHCM</option>
+        <option value="Hà Nội">Hà Nội</option>
+        <option value="Đà Nẵng">Đà Nẵng</option>
+      </select>
+      <br><br>
+      <span>Birthday</span><span style="color:red"> *</span><br>
+      <input type="date" name="birthday">
+      <br><br>
+      <span>Your picture</span><span style="color:red"> *</span><br>
+      <input type="file" name="picture" accept="image/*">
+      <br><br>
+      <input type="submit" name="submit" value="Đăng ký">
+    </fieldset>
+  </body>
+</html>

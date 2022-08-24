@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <title>My website</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+      body, html {
+        margin: 0;
+      }
+      
+      * {
+        box-sizing: border-box;
+      }
+      
+      .row::after {
+        content: "";
+        clear: both;
+        display: table;
+      }
+      
+      [class*="col-"] {
+        float: left;
+        padding-right: 15px;
+      }
+      
+      .col-1 {width: 8.33%;}
+      .col-2 {width: 16.66%;}
+      .col-3 {width: 25%;}
+      .col-4 {width: 33.33%;}
+      .col-5 {width: 41.66%;}
+      .col-6 {width: 50%;}
+      .col-7 {width: 58.33%;}
+      .col-8 {width: 66.66%;}
+      .col-9 {width: 75%;}
+      .col-10 {width: 83.33%; position: relative;}
+      .col-11 {width: 91.66%;}
+      .col-12 {width: 100%;}
+      
+      .container {
+        position: relative;
+        background-size: cover;
+      }
+      
+      .top-left {
+        position: absolute;
+        top: -40px;
+        left: 16px;
+        color: white;
+        font-size: 60px;
+        opacity: 0.5;
+      }
+      
+      .menu ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+      
+      .menu ul li {
+        margin-bottom: 7px; /* khoảng cách các ô menu */
+        background-color: #e5d2f7;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        text-indent: 10px; /* lùi text */
+        transition: 0.24s; /* độ mượt khi hover chuột */
+        line-height: 50px; /* độ cao dòng cho cùng nhau để hover ra dc con trỏ bàn tay và nhấn ra trang web khác */
+      }
+      
+      .menu ul li a {
+        text-decoration: none;
+        display: block; /* biến a thành nguyên block để hover*/
+        line-height:50px; /* độ cao dòng cho cùng nhau để hover ra dc con trỏ bàn tay và nhấn ra trang web khác */
+      }
+      
+      .menu ul li:hover {
+        background-color: #5d6cee;
+        color: white;
+        font-weight: bold;
+        
+      }
+      
+      .menu ul li:hover a {
+        color: white;
+        font-weight: bold;
+      }
+      
+      .material-icons {
+        padding-right: 10px;
+        vertical-align: sub;
+        text-align: right;
+      }
+      
+    </style>
+  </head>
+  <body  style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">
+    
+    <div class="container">
+      <img style="width: 100%;" src="image/lover.png" alt="Lover">
+      <h1 class="top-left">Welcome to Linh's website</h1>
+    </div>
+    
+    <div class="row">
+      <div class="col-2 menu">
+        <ul>
+          <li><a href="colors.html"><i class="material-icons">color_lens</i>Colors</a></li>
+          <li><a href="table.html"><i class="material-icons">border_all</i>Table</a></li>
+          <li><a href="table_even_odd.html"><i class="material-icons">border_inner</i>Table even - odd</a></li>
+          <li><a href="homework1.html"><i class="material-icons">library_books</i>Homework1</a></li>
+          <li><a href="homework2.html"><i class="material-icons">library_books</i>Homework2</a></li>
+          <li><a href="register.html"><i class="material-icons">create</i>Register</a></li>
+        </ul>
+      </div>
+      
+      <div class="col-10">
+        <iframe src="homework2.html" style="width: 100%; height: 500px;"></iframe>
+      </div>
+    </div>
+    
+  </body>
+</html>

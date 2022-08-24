@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Tạo bảng có đổ màu theo even odd</title>
+    <style media="screen">
+      table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+
+      th, td {
+        padding: 5px;
+        text-align: left;
+      }
+
+      table#t01 tr:nth-child(even) {
+        background-color: yellow;
+      }
+
+      table#t01 tr:nth-child(odd) {
+        background-color: lightgreen;
+      }
+
+      table#t01 th {
+        background-color: green;
+        color: white;
+      }
+
+      table#t02 tr:nth-child(even) {
+        background-color: #D7BDE2;
+      }
+
+      table#t02 tr:nth-child(odd) {
+        background-color: lightpink;
+      }
+
+      table#t02 th {
+        background-color: #34495E;
+        color: white;
+      }
+
+      table#t03 tr:nth-child(even) {
+        background-color: #D5D8DC;
+      }
+
+      table#t03 tr:nth-child(odd) {
+        background-color: #F9EBEA;
+      }
+
+      table#t03 th {
+        background-color: #C0392B;
+        color: white;
+      }
+
+      table#t04 tr:nth-child(even) {
+        background-color: #A9CCE3;
+      }
+
+      table#t04 tr:nth-child(odd) {
+        background-color: #D7BDE2;
+      }
+
+      table#t04 th {
+        background-color: #0B5345;
+        color: white;
+      }
+
+      table#t05 tr:nth-child(even) {
+        background-color: #F5CBA7;
+      }
+
+      table#t05 tr:nth-child(odd) {
+        background-color: #F7DC6F;
+      }
+
+      table#t05 th {
+        background-color: #873600;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <table id="t01" style="width:50%">
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Age</th>
+      </tr>
+      <tr>
+        <td>Jill</td>
+        <td>Smith</td>
+        <td>50</td>
+      </tr>
+      <tr>
+        <td>Eve</td>
+        <td>Jackson</td>
+        <td>94</td>
+      </tr>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>80</td>
+      </tr>
+    </table>
+    <br>
+    <table id="t02">
+      <tr>
+        <th>Họ tên</th>
+        <th>Ngày sinh</th>
+        <th>Giới tính</th>
+      </tr>
+      <tr>
+        <td>Trần Anh Đức</td>
+        <td>03/08/1993</td>
+        <td>Nam</td>
+      </tr>
+      <tr>
+        <td>Kiều Thị Thu Hằng</td>
+        <td>04/09/1991</td>
+        <td>Nữ</td>
+      </tr>
+      <tr>
+        <td>Vương Thị Lê Na</td>
+        <td>06/10/1991</td>
+        <td>Nữ</td>
+      </tr>
+    </table>
+    <br>
+    <table id="t03">
+      <tr>
+        <th rowspan="2">STT</th>
+        <th rowspan="2">Họ tên</th>
+        <th colspan="2">Giới tính</th>
+        <th rowspan="2">Chức vụ</th>
+      </tr>
+      <tr>
+        <th>Nam</th>
+        <th>Nữ</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Trần Đức Anh</td>
+        <td>X</td>
+        <td></td>
+        <td>Lớp trưởng</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Kiều Thị Thu Hằng</td>
+        <td></td>
+        <td>X</td>
+        <td>Lớp phó</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Vương Thị Lê Na</td>
+        <td></td>
+        <td>X</td>
+        <td>Tổ viên</td>
+      </tr>
+    </table>
+    <br>
+    <table id="t04">
+      <tr>
+        <th>STT</th>
+        <th>Họ tên</th>
+        <th>GVHD</th>
+        <th>Lịch gặp GVHD</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Nguyễn Lê Thu Trang</td>
+        <td rowspan="3">Th.S Hồ Sỹ Tuy Đức</td>
+        <td rowspan="3">08/03/2018</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Nguyễn Thị Diễm</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Phạm Thị Hồng Đào</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Nguyễn Thị Kim Sa</td>
+        <td rowspan="2">Th.S Phạm Thị Huyền Quyên</td>
+        <td rowspan="2">05/03/2018</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Lê Thị Trang</td>
+      </tr>
+    </table>
+    <br>
+    <table id="t05">
+      <tr>
+        <th colspan="2">Bảng điểm lớp 9B</th>
+        <th rowspan="2">Toán</th>
+        <th rowspan="2">Lý</th>
+        <th rowspan="2">Hoá</th>
+      </tr>
+      <tr>
+        <th>STT</th>
+        <th>Họ tên</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Trần Đức Anh</td>
+        <td>8.5</td>
+        <td>3.0</td>
+        <td>7.75</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Kiều Thị Thu Hằng</td>
+        <td>10</td>
+        <td>9.25</td>
+        <td>5.75</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Vương Thị Lê Na</td>
+        <td>2.25</td>
+        <td>6.0</td>
+        <td>7.75</td>
+      </tr>
+      <td></td>
+      <td colspan="4">Điểm trung bình cả lớp</td>
+    </table>
+  </body>
+</html>

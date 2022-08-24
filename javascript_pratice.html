@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+  <head>
+    <title>Thực hành Javascript</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/style_for_jsPractice.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/usm/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <h3>Try catch</h3>
+      <input id="input" type="text">
+      <button type="button" onclick="myFunction()">Test Input</button>
+      <p id="message"></p>
+
+      <script>
+        function myFunction() {
+          var message, x;
+          message = document.getElementById("message");
+          // message lúc này là <p id="p01"></p>
+          message.innerHTML = "";
+          // lúc này bên trong tag p đang là rỗng
+          x = document.getElementById("input").value;
+          // x hứng giá trị từ input
+          try
+          {
+            if (x == "") throw "Bạn chưa nhập gì.";
+            // nếu x bằng rỗng thì quăng tin nhắn ra html
+            if (isNaN(x)) throw "Input bạn nhập không phải là 1 số.";
+            if (x < 5) throw "Bạn vừa nhập 1 số bé hơn 5.";
+            if (x > 10) throw "Bạn vừa nhập 1 số lớn hơn 10.";
+          } catch (error)
+          {
+            message.innerHTML = "Message: " + error;
+            window.alert(error); // thằng alert xuất hiện trước, ok tắt đi rồi message mới xuất hiện
+          }
+        }
+      </script>
+
+      <!-- ===============Show current time============ -->
+      <h3>Show current time</h3>
+      <button type="button" onclick="showCurrentTime()">Hiển thị thời gian hiện tại</button><br><br>
+
+      <script>
+        function showCurrentTime() {
+          var time = new Date();
+          window.alert("Hôm nay là thứ " + (time.getDay() + 1) + " "
+            + time.getDate() + "/"
+            + (time.getMonth() + 1) + "/"
+            + time.getFullYear() + ".\n"
+            + "Bây giờ là " + time.getHours() + " giờ "
+            + time.getMinutes() + " phút.");
+        }
+      </script>
+
+      <!-- =============Show info from input============= -->
+      <h3>Show info from input</h3>
+      <label for="name">Name: </label>
+      <input id="name" type="text"><br><br>
+
+      <label for="email">Email: </label>
+      <input id="email" type="text"><br><br>
+
+      <label for="gender">Giới tính: </label>
+      <input type="radio" name="gender" value="Nam">Nam
+      <input type="radio" name="gender" value="Nữ">Nữ
+      <input type="radio" name="gender" value="Khác">Khác
+      <br><br>
+
+      <button type="button" onclick="showInfo()">Hiển thị info</button>
+      <br><br>
+      <table>
+        <thead>
+          <th>Tên</th>
+          <th>Email</th>
+          <th>Giới tính</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td id="pushName"></td>
+            <td id="pushEmail"></td>
+            <td id="pushGender"></td>
+          </tr>
+        </tbody>
+      </table>
+      <script>
+        function showInfo() {
+          var tName, tEmail, tGender;
+          // let dùng để khai báo biến trong scope block {}
+          // https://www.w3schools.com/js/js_let.asp
+
+          tName = document.getElementById("pushName");
+          tEmail = document.getElementById("pushEmail");
+          tGender = document.getElementById("pushGender");
+
+          // nếu dùng getElementsByName thì sẽ lấy 1 collection các phần tử có chung 1 name
+          tName.innerHTML = document.getElementById("name").value;
+          tEmail.innerHTML = document.getElementById("email").value;
+          tGender.innerHTML = document.querySelector('input[name="gender"]:checked').value;
+          // https://stackoverflow.com/questions/15839169/how-to-get-value-of-selected-radio-button
+        }
+      </script>
+      <hr>
+
+      <h2>JavaScript Window</h2>
+      <p id="demo"></p>
+      <!-- Browser inner window width: Chiều rộng cửa sổ bên trong trình duyệt -->
+      <script>
+        document.getElementById("demo").innerHTML = "Browser inner window width: " + window.innerWidth + "px<br>" + "Browser inner window height: " + window.innerHeight + "px";
+      </script>
+
+      <h2>What can JavaScript do?</h2>
+      <p>JavaScript can change HTML attribute values.</p>
+      <p>In this case JavaScript changes the value of the src attribute of an image.</p>
+
+      <button onclick="document.getElementById('image').src='image/pic_bulbon.gif'">Turn on the light</button>
+
+      <img src="image/pic_bulboff.gif" alt="bóng đèn đang tắt" id="image" style="width: 100px;">
+
+      <button onclick="document.getElementById('image').src='image/pic_bulboff.gif'">Turn off the light</button>
+    </div>
+  </body>
+
+</html>

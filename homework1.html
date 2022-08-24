@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <title>Thiết kế website cơ bản</title>
+    <meta charset="utf-8">
+    <meta name="description" content="This page is a webpage to learn html">
+    <meta name="keywords" content="html5, anime">
+    <meta name="author" content="Nguyen Linh">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style media="screen">
+      h1#h01 {
+        width: 93%;
+        text-align: center;
+        border-style: none;
+        border-width: thin;
+        color: #DE3163;
+        font-family: Algerian;
+      }
+      table, th, td {
+        border: 1px solid orange;
+        border-collapse: collapse;
+      }
+      th, td {
+        padding: 5px;
+      }
+      th {
+        text-align: left;
+        color: red;
+      }
+      table {
+        border: 3px solid orange;
+        border-spacing: 15px;
+      }
+      .parent {
+        padding: 0 31px;
+        border: 1px, solid red;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Làm form -->
+    <h1 id="h01">Practice HTML by Nguyen Linh</h1>
+    <form style="font-family: 'Palatino Linotype'" class="" id="Contact_form" action="action_page.php" method="get" autocomplete="on">
+      <fieldset style="width:93%; margin: auto; background-image: url('./image/cogaianime.jpg');">
+        <h2>PLACE ORDER (ĐẶT HÀNG)</h2>
+        <label for="fname" style="background-color: pink">First name:</label>
+        <input type="text" id="fname" name="fname" placeholder="Nhập tên" autofocus required autocomplete="off">
+        &nbsp;&nbsp;
+        <!-- có thể thêm title để gợi ý tool này làm gì -->
+        <label for="lname" style="background-color: pink">Last name:</label>
+        <input type="text" id="lname" name="lname" placeholder="Nhập họ" required autocomplete="off"><br><br>
+        Username:
+        <input type="text" name="username" placeholder="Nhập username" required>&nbsp;&nbsp;
+        Password:
+        <input type="password" name="password" size="15" placeholder="Nhập password" required><br><br>
+        Email:
+        <input type="email" name="email" placeholder="Nhập email" required autocomplete="on"><br><br>
+        <label for="male">Male</label>
+        <input type="radio" name="gender" value="male" checked>&nbsp;&nbsp;&nbsp;
+        <label for="female">Female</label>
+        <input type="radio" name="gender" value="female">&nbsp;&nbsp;&nbsp;
+        <label for="other">Other</label>
+        <input type="radio" name="gender" value="other"><br><br>
+        Tải file lên:
+        <input type="file" name="picture" accept="image/*"><br><br>
+        Birthday:
+        <input type="date" name="birthday" min="1980-01-01" max="2022-01-01">&nbsp;&nbsp;
+        Select time:
+        <input type="time" name="time"><br><br>
+        Date and time:
+        <input type="datetime-local" name="datetime"><br><br>
+        Month and year:
+        <input type="month" name="month"><br><br>
+        Week:
+        <input type="week" name="week"><br><br>
+        Chọn trình duyệt:
+        <input list="browsers" name="browsers" size="7">
+        <datalist id="browsers">
+          <option value="Edge"></option>
+          <option value="Chrome"></option>
+          <option value="Firefox"></option>
+          <option value="Opera"></option>
+          <option value="Safari"></option>
+        </datalist><br><br>
+        <label for="message" style="background-color: pink">Message:</label><br>
+        <textarea name="message" rows="7" cols="70" placeholder="Để lại tin nhắn" style="border-radius: 12px"></textarea><br><br>
+        <label for="quantity">Quantity (between 1 and 5):</label>
+        <input type="number" name="quantity" min="1" max="5"><br><br>
+        <label for="checkbox">Lựa chọn (có thể chọn nhiều):</label><br>
+        <input type="checkbox" name="ingredient" value="peppers" checked> Peppers<br>
+        <input type="checkbox" name="ingredient" value="sausage"> Sausage<br>
+        <input type="checkbox" name="ingredient" value="cheese"> Cheese<br><br>
+        Chọn size bánh pizza:
+        <select class="" name="size">
+          <option value="12">12" - $13.99</option>
+          <option value="16">16" - $16.99</option>
+          <option value="18">18" - $19.99</option>
+          <option value="72">72" - $149.99</option>
+        </select>
+        <br><br>
+        Range:
+        <input type="range" id="range" name="range" value="50"><br><br>
+      </fieldset>
+      <div class="parent">
+        <input type="submit" value="Xác nhận và gửi" style="color: purple">
+      </div>
+    </form>
+    <hr>
+    <fieldset style="width:93%; margin: auto">
+      <font face="Courier">
+      <section>
+        <h1>HOMEWORK</h1>
+        <table width="30%">
+          <tr>
+            <th>Exercise</th>
+            <th>Link</th>
+          </tr>
+          <tr>
+            <td rowspan="2">Bảng biểu</td>
+            <td><a href="table.html">Table</td>
+          </tr>
+          <tr>
+            <td><a href="table_even_odd.html">Table even-odd</td>
+          </tr>
+          <tr>
+            <td>Màu sắc</td>
+            <td><a href="colors.html">Colors</td>
+          </tr>
+          <tr>
+            <td>Form đăng ký</td>
+            <td><a href="register.html">Register</td>
+          </tr>
+        </table>
+      </section>
+      <section>
+        <audio width="600" controls autoplay loop>
+          <source src="D:\LINH\VTI Academy\FRONT - END Basic\Tai xuong\THERE’S NO ONE AT ALL.mp3" type="audio/mp3">
+        </audio>
+      </section>
+      <!-- <section>
+        <video width="540" height="320" controls>
+          <source src="intro.mp4" type="video/mp4">
+        </video>
+      </section> -->
+      <h1>Hello World</h1>
+      <button type="button" name="Nhấn vào đây!" onclick="alert('Chào mừng!')">Click me!</button>
+      <p>My first paragraph <a href="https://kekeke-nihongo.blogspot.com/">Link học tiếng Nhật</a></p>
+      <h1>Đây là thẻ h1</h1>
+      <h2>Đây là thẻ h2</h2>
+      <h3>Đây là thẻ h3</h3>
+      <h4>Đây là thẻ h4</h4>
+      <h5>Đây là thẻ h5</h5>
+      <h6>Đây là thẻ h6</h6>
+
+      <pre>
+        <b>This text is bold</b>
+        <i>This text is italic</i>
+        This is <sub>subscript</sub> and <sup>superscript</sup>
+        H<sub>2</sub>O  2<sup>8</sup>
+
+        This text is normal.
+        <em>This text is emphasized</em>
+
+        The del element represents deleted (removed) text.
+        My favorite color is <del>blue</del> red.
+
+        The ins element represents inserted (added) text.
+        My favorite <ins>color</ins> is red.
+      </pre>
+
+      <h2>HTML <small>Small</small> Formatting</h2>
+      <h1>HTML <mark>Marked</mark> Formatting</h1>
+
+      <h2>DANH SÁCH LỚP HỌC</h2>
+      <ol type="1">
+        <li>Nguyễn Ngọc Duy</li>
+        <li>Tống Quang Anh</li>
+        <li>Đinh Thu Loan</li>
+        <li>Hà Văn Tiến</li>
+        <li>Nguyễn Hải Đăng</li>
+        <li>Nguyễn Tiến Quang</li>
+        <li>Nguyễn Văn Chiến</li>
+      </ol>
+
+      <h2>A list in a list in a list</h2>
+      <ul>
+        <li>Coffee</li>
+        <li>Tea</li>
+        <ul>
+          <li>Black tea</li>
+          <li>Green tea</li>
+          <ul>
+            <li>China</li>
+            <li>Africa</li>
+          </ul>
+        </ul>
+        <li>Milk</li>
+      </ul>
+
+      <br>
+      <ol type="1">
+        <li>Cơm trưa</li>
+        <ul style="list-style-type:disc">
+          <li>Cơm chiên hải sản</li>
+          <li>Cơm sườn non nấu cam</li>
+          <li>Cơm canh chua cá lóc</li>
+        </ul>
+        <li>Tráng miệng trái cây</li>
+        <ul>
+          <li>Nho tươi</li>
+          <li>Chuối</li>
+          <li>Mận</li>
+        </ul>
+      </ol>
+
+      <p>Here is my website:</p>
+      <blockquote cite="http://https://kekeke-nihongo.blogspot.com/">
+        Đây là trích đoạn trong website của tôi.
+      </blockquote>
+      <img src="./image/ryokou.jpeg" width="500" alt="Du lịch tốt nghiệp">
+      <p><cite>Du lịch tốt nghiệp</cite> by Nguyen Linh</p>
+      <!-- alt dùng để hiển thị nội dung ảnh là gì nếu ảnh bị lỗi ko hiển thị -->
+
+      <h3>This is my table</h3>
+      <table width="50%" border="1px" style="border-collapse: collapse">
+        <tr style="background-color:yellow">
+          <th style="color:red">Company</th>
+          <th style="color:green">Contact</th>
+          <th style="color:blue">Country</th>
+        </tr>
+        <tr>
+          <td>Công ty ABC</td>
+          <td>Nguyen Linh</td>
+          <td>Vietnam</td>
+        </tr>
+        <tr>
+          <td>Công ty XYZ</td>
+          <td>Nguyen Hai</td>
+          <td>Vietnam</td>
+        </tr>
+      </table>
+
+      <p>Anna's score: <meter low=40 high=90 value=35 min=0 max=100></meter> </p>
+
+      <label for="disk_c">Disk usage C:</label>
+      <meter id="disk_c" value="2" min="0" max="10">2 out of 10 (2 trên 10)</meter>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <label for="disk_d">Disk usage D:</label>
+      <meter id="disk_d" value="0.6">60%</meter><br><br>
+      <label for="Taixuong">Tải xuống:</label>
+      <progress value="0.7">70%</progress>
+
+      <h1>The iframe element</h1>
+      <iframe src="table_even_odd.html" width="500" height="800" title="Bảng của tôi"></iframe><br><br>
+
+      <footer>
+        <details open>
+          <summary>&copy;Copyright 2022.</summary>
+          <p> - by Nguyen Linh. All Rights Reserved.</p>
+          <p>All content and graphics on this website are the property of Nguyen Linh.</p>
+        </details>
+        <br>
+
+        <address class="">
+          Written by Nguyen Linh.<br>
+          Visit us at:<br>
+          Example.com<br>
+          TPHCM, Vietnam
+        </address>
+      </footer>
+    </fieldset>
+  </body>
+</html>

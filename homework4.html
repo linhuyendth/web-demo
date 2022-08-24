@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"> 
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script> -->
+    <style>
+      body {
+        background: #f8ada0;
+      }
+      
+      .header,
+      .body,
+      .footer {
+        border: 1px solid #e25d04
+      }
+
+      .header,
+      .body,
+      .footer {
+        display: grid;
+        place-items: center;
+      }
+
+      .body {
+        height: 450px;
+      }
+
+      h1 {
+        text-align: center;
+        padding: 10px 0;
+      }
+
+      /* Make the image fully responsive */
+      .carousel-inner img {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Chia grid bootstrap - Chia trang web thành hình dạng có header, chiếm 12 phần (gợi ý: col-lg-12), body có 3 div (div 1 chiếm 3 phần, div 2 chiếm 7 phần, div 3 chiếm 2 phần), footer chiếm 12 phần (gợi ý: col-lg-12). (Nếu còn chưa rõ cách làm vào video quay lại buổi học, xem phần hướng dẫn grid) https://www.w3schools.com/bootstrap4/bootstrap_grid_basic.asp-->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12 header">
+          <h1>Header has width 12 cols</h1>
+        </div>
+        <div class="col-lg-3 body">
+          <h3>Body has width 3 cols</h3>
+        </div>
+        <div class="col-lg-7 body">
+          <h3>Body has width 7 cols</h3>
+        </div>
+        <div class="col-lg-2 body">
+          <h3>Body has width 2 cols</h3>
+        </div>
+        <div class="col-lg-12 footer">
+          <h1>Footer has width 12 cols</h1>
+        </div>
+      </div><br><br>
+    </div>
+
+    <!-- Sử dụng chữ nhỏ (thẻ small), highlight (thẻ mark), căn giữa chữ, căn phải chữ, căn đều chữ, đổi chữ thành in hoa (gợi ý: dùng class="text-uppercase"), đổi chữ thành in hoa chữ cái mỗi từ (gợi ý: dùng class="text-capitalize"). Cả phần b này có trong link https://www.w3schools.com/bootst.../bootstrap_typography.asp -->
+    <div class="container" style="border: 2px dashed #fffd80;">
+      <h1>Typography (kiểu chữ)</h1>
+      <p><small>Tag small is a inline element.</small></p>
+      <p><mark>Tag mark has this background.</mark></p>
+      <p class="text-center">This paragraph is aligned center by class text-center.</p>
+      <p class="text-right">This paragraph is aligned right by class text-right.</p>
+      <p class="text-justify jumbotron" style="width: 80%; margin: auto;">Lorem ipsum dolor sit amet, consectetur
+        adipisicing elit. Delectus odit itaque eos consequuntur placeat explicabo pariatur dolore. Magnam enim repellat
+        amet in consequatur labore similique cum laboriosam sint! Tempore, soluta. Lorem ipsum dolor sit amet,
+        consectetur adipisicing elit. Ut et recusandae aut fuga exercitationem. Totam deserunt, sequi nemo
+        exercitationem odio soluta, veniam a tempore suscipit explicabo, pariatur eius sint quo. <i><b>This paragraph is
+            aligned justify by class text-justify and decorated by class jumbotron.</b></i></p><br>
+      <p class="text-uppercase">This paragraph is capitalized all letters by class text-uppercase.</p>
+      <p class="text-capitalize">This paragraph is capitalized on the first letter of words by class text-capitalize.
+      </p>
+    </div><br>
+
+    <!-- Dùng class đổi MÀU CHỮ thành màu muted, primary, success, info, warning, danger, secondary, dark (gợi ý: https://www.w3schools.com/bootstrap4/bootstrap_colors.asp) -->
+    <div class="container" style="border: 2px dashed #fffd80;">
+      <h1>Contextual Colors (màu sắc mang ngữ cảnh)</h1>
+      <p>Use the contextual classes to provide "meaning through colors":</p>
+      <p class="text-muted">This text is muted. (.text-muted)</p>
+      <p class="text-primary">This text is important. (.text-primary)</p>
+      <p class="text-success">This text indicates success. (.text-success)</p>
+      <p class="text-info">This text represents some information. (.text-info)</p>
+      <p class="text-warning" style="background: #cf8072; display: inline-block;">This text represents a warning.
+        (.text-warning)</p>
+      <p class="text-danger">This text represents danger. (.text-danger)</p>
+      <p class="text-secondary">Secondary text. (.text-secondary)</p>
+      <p class="text-dark">This text is dark grey. (.text-dark)</p>
+      <p class="text-body">Default body color (often black). (.text-body)</p>
+      <p class="text-light">This text is light grey. (.text-light)</p>
+      <p class="text-white">This text is white. (.text-white)</p><br>
+
+      <!-- Add độ mờ 50% -->
+      <h2>Opacity Text Colors</h2>
+      <p>Add 50% opacity for black or white text with the .text-black-50 or .text-white-50 classes:</p>
+      <p class="text-black-50">Black text with 50% opacity on white background.</p>
+      <p class="text-white-50 bg-dark">White text with 50% opacity on black background.</p><br>
+
+      <!-- Dùng class đổi MÀU NỀN thành màu muted, primary, success, info, warning, danger, secondary, dark
+      The classes for background colors are: .bg-primary, .bg-success, .bg-info, .bg-warning, .bg-danger, .bg-secondary, .bg-dark and .bg-light.
+      Note that background colors do not set the text color, so in some cases you'll want to use them together with a .text-* class.-->
+      <h2>Contextual Backgrounds</h2>
+      <p>Use the contextual background classes to provide "meaning through colors".</p>
+      <p>Note that you can also add a .text-* class if you want a different text color:</p>
+      <p class="bg-primary text-white">This text is important. (.bg-primary text-white)</p>
+      <p class="bg-success text-white">This text indicates success. (.bg-success text-white)</p>
+      <p class="bg-info text-white">This text represents some information. (.bg-info text-white)</p>
+      <p class="bg-warning text-white">This text represents a warning. (.bg-warning text-white)</p>
+      <p class="bg-danger text-white">This text represents danger. (.bg-danger text-white)</p>
+      <p class="bg-secondary text-white">Secondary background color. (.bg-secondary text-white)</p>
+      <p class="bg-dark text-white">Dark grey background color. (.bg-dark text-white)</p>
+      <p class="bg-light text-dark">Light grey background color. (.bg-light text-dark)</p>
+    </div><br>
+
+    <!-- Dùng class table để tạo bảng trong bootstrap -->
+    <div class="container" style="border: 2px dashed #fffd80;">
+      <h1>Tables</h1>
+      <h2>Basic Table</h2>
+      <p>The .table class adds basic styling (light padding and horizontal dividers) to a table:</p>
+      <table class="table"
+        style="background-image: url(image/vn.jpg); width: 100%; background-position: bottom; color: #fffd80;">
+        <thead>
+          <tr>
+            <th>Họ tên</th>
+            <th>Quê quán</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Nguyễn Văn A</td>
+            <td>Yên Bái</td>
+            <td>a.nguyenvan@gmail.com</td>
+          </tr>
+          <tr>
+            <td>Nguyễn Văn B</td>
+            <td>Cao Bằng</td>
+            <td>b.nguyenvan@gmail.com</td>
+          </tr>
+          <tr>
+            <td>Nguyễn Văn C</td>
+            <td>Lạng Sơn</td>
+            <td>c.nguyenvan@gmail.com</td>
+          </tr>
+        </tbody>
+      </table><br>
+
+      <h2>Striped Rows</h2>
+      <p>The .table-striped class adds zebra-stripes to a table:</p>
+      <table class="table table-striped text-body" style="background: white; width: 100%;">
+        <thead>
+          <tr>
+            <th>Họ tên</th>
+            <th>Quê quán</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Nguyễn Văn A</td>
+            <td>Yên Bái</td>
+            <td>a.nguyenvan@gmail.com</td>
+          </tr>
+          <tr>
+            <td>Nguyễn Văn B</td>
+            <td>Cao Bằng</td>
+            <td>b.nguyenvan@gmail.com</td>
+          </tr>
+          <tr>
+            <td>Nguyễn Văn C</td>
+            <td>Lạng Sơn</td>
+            <td>c.nguyenvan@gmail.com</td>
+          </tr>
+        </tbody>
+      </table><br>
+
+      <h2>Bordered Table</h2>
+      <p>The .table-bordered class adds borders on all sides of the table and the cells:</p>
+      <table class="table table-bordered text-body" style="background: white; width: 100%;">
+        <thead>
+          <tr>
+            <th>Họ tên</th>
+            <th>Quê quán</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Nguyễn Văn A</td>
+            <td>Yên Bái</td>
+            <td>a.nguyenvan@gmail.com</td>
+          </tr>
+          <tr>
+            <td>Nguyễn Văn B</td>
+            <td>Cao Bằng</td>
+            <td>b.nguyenvan@gmail.com</td>
+          </tr>
+          <tr>
+            <td>Nguyễn Văn C</td>
+            <td>Lạng Sơn</td>
+            <td>c.nguyenvan@gmail.com</td>
+          </tr>
+        </tbody>
+      </table><br>
+
+      <h2>Combine .table-hover and .table-danger</h2>
+      <p>The .table-hover class enables a hover state (grey background on mouse over) on table rows:</p>
+      <table class="table table-hover table-danger">
+        <thead>
+          <tr>
+            <th>Họ tên</th>
+            <th>Quê quán</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Nguyễn Văn A</td>
+            <td>Yên Bái</td>
+            <td>a.nguyenvan@gmail.com</td>
+          </tr>
+          <tr>
+            <td>Nguyễn Văn B</td>
+            <td>Cao Bằng</td>
+            <td>b.nguyenvan@gmail.com</td>
+          </tr>
+          <tr>
+            <td>Nguyễn Văn C</td>
+            <td>Lạng Sơn</td>
+            <td>c.nguyenvan@gmail.com</td>
+          </tr>
+        </tbody>
+      </table><br>
+
+      <h2>Contextual Classes + table-responsive-sm</h2>
+      <p>Contextual classes can be used to color the table, table rows or table cells. The classes that can be used are:
+        .table-primary, .table-success, .table-info, .table-warning, .table-danger, .table-active, .table-secondary,
+        .table-light and .table-dark:</p>
+      <table class="table table-responsive-sm table-hover table-bordered">
+        <thead class="thead-dark">
+          <tr>
+            <th>Contextual</th>
+            <th>Combine .thead-dark</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Default</td>
+            <td>Default</td>
+            <td>default@gmail.com</td>
+          </tr>
+          <tr class="table-primary">
+            <td>Primary</td>
+            <td>table-primary</td>
+            <td>table-primary@gmail.com</td>
+          </tr>
+          <tr class="table-success">
+            <td>Success</td>
+            <td>table-success</td>
+            <td>table-success@gmail.com</td>
+          </tr>
+          <tr class="table-danger">
+            <td>Danger</td>
+            <td>table-danger</td>
+            <td>table-danger@gmail.com</td>
+          </tr>
+          <tr class="table-info">
+            <td>Info</td>
+            <td>table-info</td>
+            <td>table-info@gmail.com</td>
+          </tr>
+          <tr class="table-warning">
+            <td>Warning</td>
+            <td>table-warning</td>
+            <td>table-warning@gmail.com</td>
+          </tr>
+          <tr class="table-active">
+            <td>Active</td>
+            <td>Active (trạng thái khi dc hover)</td>
+            <td>table-active@gmail.com</td>
+          </tr>
+          <tr class="table-secondary">
+            <td>Secondary</td>
+            <td>table-secondary</td>
+            <td>table-secondary@gmail.com</td>
+          </tr>
+          <tr class="table-light">
+            <td>Light</td>
+            <td>table-light</td>
+            <td>table-light@gmail.com</td>
+          </tr>
+          <tr class="table-dark text-dark">
+            <td>Dark</td>
+            <td>table-dark text-dark</td>
+            <td>table-text-dark@gmail.com</td>
+          </tr>
+        </tbody>
+      </table><br>
+
+      <h2>Small Table</h2>
+      <p>The .table-sm class makes the table smaller by cutting cell padding in half:</p>
+      <p>Combine .table-dark + .table-bordered + .table-striped</p>
+      <table class="table table-dark table-bordered table-sm table-striped">
+        <thead class="thead-light">
+          <tr>
+            <th>Họ tên</th>
+            <th>Quê quán</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Nguyễn Văn A</td>
+            <td>Yên Bái</td>
+            <td>a.nguyenvan@gmail.com</td>
+          </tr>
+          <tr>
+            <td>Nguyễn Văn B</td>
+            <td>Cao Bằng</td>
+            <td>b.nguyenvan@gmail.com</td>
+          </tr>
+          <tr>
+            <td>Nguyễn Văn C</td>
+            <td>Lạng Sơn</td>
+            <td>c.nguyenvan@gmail.com</td>
+          </tr>
+        </tbody>
+      </table><br>
+
+      <h2>Responsive Table</h2>
+      <p>The .table-responsive class adds a scrollbar to the table when needed:</p>
+      <div class="table-responsive">
+        <table class="table table-bordered" style="background: #fffffff6;">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Firstname</th>
+              <th>Lastname</th>
+              <th>Age</th>
+              <th>City</th>
+              <th>Country</th>
+              <th>Sex</th>
+              <th>Example</th>
+              <th>Example</th>
+              <th>Example</th>
+              <th>Example</th>
+              <th>Example</th>
+              <th>Example</th>
+              <th>Example</th>
+              <th>Example</th>
+              <th>Example</th>
+              <th>Example</th>
+              <th>Example</th>
+              <th>Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Anna</td>
+              <td>Pitt</td>
+              <td>35</td>
+              <td>New York</td>
+              <td>USA</td>
+              <td>Female</td>
+              <td>Yes</td>
+              <td>Yes</td>
+              <td>Yes</td>
+              <td>Yes</td>
+              <td>Yes</td>
+              <td>Yes</td>
+              <td>Yes</td>
+              <td>Yes</td>
+              <td>Yes</td>
+              <td>Yes</td>
+              <td>Yes</td>
+              <td>Yes</td>
+            </tr>
+          </tbody>
+        </table>
+      </div><br>
+    </div><br>
+
+    <!-- Images (gợi ý: https://www.w3schools.com/bootstrap4/bootstrap_images.asp) -->
+    <div class="container" style="border: 2px dashed #fffd80;">
+      <h1>Images</h1><br>
+
+      <!-- Sử dụng display:flex .d-flex -->
+      <div class="text-center d-flex">
+        <div>
+          <h2>Rounded Corners</h2>
+          <p>The .rounded class adds rounded corners to an image:</p>
+          <!-- Dùng class .rounded để tạo ảnh trong bootstrap được bo góc -->
+          <img src="image/ryokou.jpeg" class="rounded w-75" alt="Graduated Travel">
+        </div><br>
+        <div>
+          <h2>Circle</h2>
+          <p>The .rounded-circle class shapes the image to a circle:</p>
+          <!-- Dùng class .rounded-circle để tạo ảnh hình tròn trong bootstrap -->
+          <img src="image/ryokou.jpeg" class="rounded-circle w-75" alt="Graduated Travel">
+        </div><br>
+        <div>
+          <h2>Thumbnail</h2>
+          <p>The .img-thumbnail class creates a thumbnail of the image:</p>
+          <!-- Dùng class .img-thumbnail để tạo ảnh có viền ngoài -->
+          <img src="image/ryokou.jpeg" class="img-thumbnail w-75" alt="Graduated Travel">
+        </div><br>
+      </div><br>
+
+      <!-- Sử dụng float -->
+      <div class="clearfix text-center">
+        <img src="image/heart.png" class="float-left" alt="heart" width="25%">
+        <div class="float-left w-50">
+          <h2>Aligning images</h2>
+          <p>Use the float classes to float the image to the left or to the right:</p>
+          <hr>
+          <p>Center an element by adding the utility classes .mx-auto (margin:auto) and .d-block (display:block) to the
+            image:</p>
+          <img src="image/heart.png" class="w-25" alt="heart">
+        </div>
+        <img src="image/heart.png" class="float-right" alt="heart" width="25%">
+      </div>
+
+      <!-- Responsive -->
+      <h2>Responsive Images</h2>
+      <p>Images come in all sizes. So do screens. Responsive images automatically adjust to fit the size of the screen.
+        Create responsive images by adding an .img-fluid class to the <img> tag. The image will then scale nicely to the
+        parent element. The .img-fluid class applies max-width: 100%; and height: auto; to the image:</p>
+      <img class="img-fluid w-100" src="image/cogaianime.jpg" alt="girl"><br>
+    </div><br>
+
+    <!-- Tạo alert các loại trong bootstrap -->
+    <div class="container" style="border: 2px dashed #fffd80;">
+      <h1>Alerts</h1><br>
+      <!-- Alerts are created with the .alert class, followed by one of the contextual classes .alert-success, .alert-info, .alert-warning, .alert-danger, .alert-primary, .alert-secondary, .alert-light or .alert-dark: -->
+      <span style=" float: left;
+                    width: 0.7em;
+                    font-size: 400%;
+                    font-family: algerian, courier;
+                    line-height: 20%; ">A</span>
+      <p>lerts are created with the .alert class, followed by a contextual color classes:</p>
+      <div class="alert alert-success">
+        <strong>Success!</strong> This alert box could indicate a successful or positive action.
+      </div>
+      <div class="alert alert-info">
+        <strong>Info!</strong> This alert box could indicate a neutral informative change or action.
+      </div>
+      <div class="alert alert-warning">
+        <strong>Warning!</strong> This alert box could indicate a warning that might need attention.
+      </div>
+
+      <div class="alert alert-danger">
+        <strong>Danger!</strong> This alert box could indicate a dangerous or potentially negative action.
+      </div>
+
+      <h2>Closing Alerts + Animated Alerts</h2>
+      <p>To close the alert message, add a .alert-dismissible class to the alert container. Then add class="close" and
+        data-dismiss="alert" to a link or a button element (when you click on this the alert box will disappear). The
+        .fade (mờ đi) and .show classes adds a fading effect when closing the alert message:</p>
+      <div class="alert alert-primary alert-dismissible fade show">
+        <!-- thằng này phải thêm link js mới chạy -->
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>Primary!</strong> Indicates an important action.<a href="#" class="alert-link"> ☞ .alert-link into tag
+          a</a>
+      </div>
+      <div class="alert alert-secondary alert-dismissible fade show">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>Secondary!</strong> Indicates a slightly less important action.
+      </div>
+      <div class="alert alert-dark alert-dismissible fade show">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>Dark!</strong> Dark grey alert.
+      </div>
+      <div class="alert alert-light alert-dismissible fade show">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>Light!</strong> Light grey alert.
+      </div>
+    </div><br>
+
+    <!-- Tạo button loại success, danger, primary, info, secondary, warning trong bootstrap -->
+    <div class="container" style="border: 2px dashed #fffd80;">
+      <h1>Buttons</h1><br>
+      <!-- btn là shorthand của button -->
+      <h2>Button Styles</h2>
+      <button type="button" class="btn">Basic</button>
+      <button type="button" class="btn btn-primary">Primary</button>
+      <button type="button" class="btn btn-secondary">Secondary</button>
+      <button type="button" class="btn btn-success">Success</button>
+      <button type="button" class="btn btn-info">Info</button>
+      <button type="button" class="btn btn-warning">Warning</button>
+      <button type="button" class="btn btn-danger">Danger</button>
+      <button type="button" class="btn btn-dark">Dark</button>
+      <button type="button" class="btn btn-light">Light</button>
+      <button type="button" class="btn btn-link">Link</button>
+      <span>Click thử vào các nút!</span><br><br>
+
+      <h2>Button Elements</h2>
+      <p>The button classes can be used on a, button, or input elements:</p>
+      <a href="#" class="btn btn-info" role="button">Link Button</a>
+      <button type="button" class="btn btn-info">Button</button>
+      <input type="button" class="btn btn-info" value="Input Button">
+      <input type="submit" class="btn btn-info" value="Submit Button"><br><br>
+
+      <h2>Button Outline</h2>
+      <div class="bg-light d-inline-block p-1" style="border-radius: 5px;">
+        <button type="button" class="btn btn-outline-primary">Primary</button>
+        <button type="button" class="btn btn-outline-secondary">Secondary</button>
+        <button type="button" class="btn btn-outline-success">Success</button>
+        <button type="button" class="btn btn-outline-info">Info</button>
+        <button type="button" class="btn btn-outline-warning">Warning</button>
+        <button type="button" class="btn btn-outline-danger">Danger</button>
+        <button type="button" class="btn btn-outline-dark">Dark</button>
+        <button type="button" class="btn btn-outline-light text-dark">Light</button>
+      </div><br><br>
+
+      <h2>Button Sizes</h2>
+      <button type="button" class="btn btn-primary btn-lg">Large</button>
+      <button type="button" class="btn btn-primary btn-md">Default</button>
+      <button type="button" class="btn btn-primary btn-sm">Small</button><br><br>
+    </div><br>
+
+    <!-- Tạo badge loại success, danger, primary, info, secondary, warning trong bootstrap -->
+    <div class="container" style="border: 2px dashed #fffd80;">
+      <h1>Badges (phù hiệu)</h1>
+      <p>Badges are used to add additional information to any content. Use the .badge class together with a contextual
+        class (like .badge-secondary) within span elements to create rectangular badges. Note that badges scale to match
+        the size of the parent element (if any):</p>
+      <h4 class="text-center">Title abc with a badge <span class="badge badge-secondary">abc</span></h4>
+
+      <h2>Contextual Badges</h2>
+      <p>Use any of the contextual classes (.badge-*) to change the color of a badge:</p>
+      <span class="badge badge-primary">Primary</span>
+      <span class="badge badge-secondary">Secondary</span>
+      <span class="badge badge-success">Success</span>
+      <span class="badge badge-danger">Danger</span>
+      <span class="badge badge-warning">Warning</span>
+      <span class="badge badge-info">Info</span>
+      <span class="badge badge-light">Light</span>
+      <span class="badge badge-dark">Dark</span><br><br>
+
+      <h2>Pill Badges</h2>
+      <p>Use the .badge-pill class to make the badges more round:</p>
+      <span class="badge badge-pill badge-primary">Primary</span>
+      <span class="badge badge-pill badge-secondary">Secondary</span>
+      <span class="badge badge-pill badge-success">Success</span>
+      <span class="badge badge-pill badge-danger">Danger</span>
+      <span class="badge badge-pill badge-warning">Warning</span>
+      <span class="badge badge-pill badge-info">Info</span>
+      <span class="badge badge-pill badge-light">Light</span>
+      <span class="badge badge-pill badge-dark">Dark</span><br><br>
+
+      <h2>Badge inside a Button</h2>
+      <button type="button" class="btn btn-primary" style="border-radius: 10px;">
+        Messages <span class="badge badge-light" style="border-radius: 8px;">4</span>
+      </button>
+      <button type="button" class="btn btn-danger" style="border-radius: 30px;">
+        Notifications <span class="badge badge-light">7</span>
+      </button><br><br>
+    </div><br>
+
+    <!-- Tạo Progress Bar trong bootstrap -->
+    <div class="container" style="border: 2px dashed #fffd80">
+      <h1>Progress Bar</h1>
+      <h2>Basic Progress Bar With Label</h2>
+      <p>To create a default progress bar, add a .progress class to a container element and add the progress-bar class
+        to its child element. Use the CSS width property to set the width of the progress bar:</p>
+      <div class="progress">
+        <div class="progress-bar" style="width:70%">70%</div>
+      </div><br>
+      <!-- thanh trắng bao ngoài, thanh xanh lồng bên trong có width 70% thanh trắng -->
+
+      <h2>Progress Bar Height</h2>
+      <p>The height of the progress bar is 1rem (16px) by default. Use the CSS height property to change the height:</p>
+      <p>Note that you must set the same height for the progress container and the progress bar:</p>
+      <div class="progress" style="height:10px">
+        <div class="progress-bar" style="width:40%;height:10px"></div>
+      </div><br>
+      <!-- div chứa và div dc chứa cùng height -->
+
+      <h2>Colored Progress Bars</h2>
+      <p>Use any of the contextual color classes to change the color of the progress bar:</p>
+      <p>Mặc định là màu lam, những cái khác dùng kết hợp .progress-bar + .bg-* .</p>
+      <!-- Blue (default)-->
+      <div class="progress">
+        <div class="progress-bar" style="width:10%"></div>
+      </div><br>
+
+      <!-- Green -->
+      <div class="progress">
+        <div class="progress-bar bg-success" style="width:20%"></div>
+      </div><br>
+
+      <!-- Turquoise -->
+      <div class="progress">
+        <div class="progress-bar bg-info" style="width:30%"></div>
+      </div><br>
+
+      <!-- Orange -->
+      <div class="progress">
+        <div class="progress-bar bg-warning" style="width:40%"></div>
+      </div><br>
+
+      <!-- Red -->
+      <div class="progress">
+        <div class="progress-bar bg-danger" style="width:50%"></div>
+      </div><br>
+
+      <!-- White -->
+      <div class="progress border">
+        <div class="progress-bar bg-white" style="width:60%"></div>
+      </div><br>
+
+      <!-- Grey -->
+      <div class="progress">
+        <div class="progress-bar bg-secondary" style="width:70%"></div>
+      </div><br>
+
+      <!-- Light Grey -->
+      <div class="progress border">
+        <div class="progress-bar bg-light" style="width:80%"></div>
+      </div><br>
+
+      <!-- Dark Grey -->
+      <div class="progress">
+        <div class="progress-bar bg-dark" style="width:90%"></div>
+      </div><br>
+
+      <h2>Striped Progress Bars</h2>
+      <p>The .progress-bar-striped class adds stripes to the progress bars:</p>
+      <div class="progress">
+        <div class="progress-bar progress-bar-striped" style="width:30%"></div>
+      </div>
+      <br>
+      <div class="progress">
+        <div class="progress-bar bg-success progress-bar-striped" style="width:40%"></div>
+      </div>
+      <br>
+      <div class="progress">
+        <div class="progress-bar bg-info progress-bar-striped" style="width:50%"></div>
+      </div><br>
+
+      <h2>Animated Progress Bar</h2>
+      <p>Add the .progress-bar-animated class to animate the progress bar:</p>
+      <div class="progress">
+        <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" style="width:60%"></div>
+      </div><br>
+      <div class="progress">
+        <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" style="width:70%"></div>
+      </div><br>
+
+      <h2>Multiple Progress Bars</h2>
+      <p>Create a stacked progress bar <b>by placing multiple bars into the same div with class="progress"</b>:</p>
+      <div class="progress">
+        <div class="progress-bar bg-success" style="width:40%">Free Space</div>
+        <div class="progress-bar bg-warning" style="width:10%">Warning</div>
+        <div class="progress-bar bg-danger" style="width:20%">Danger</div>
+      </div><br>
+    </div><br>
+
+    <!-- Tạo phân trang pagination trong bootstrap -->
+    <div class="container" style="border: 2px dashed #fffd80;">
+      <h1>Pagination</h1>
+      <h2>Basic Pagination with Active State or with Disabled State</h2>
+      <p>To create a basic pagination, add the .pagination class to an ul element. Then add the .page-item to each li
+        element and a .page-link class to each link inside li:</p>
+      <p>The .active class is used to "highlight" the current page:</p>
+      <p>The .disabled class is used for un-clickable links:</p>
+      <ul class="pagination">
+        <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item active"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+      </ul>
+
+      <h2>Pagination - Sizing and Pagination Alignment</h2>
+      <p>Add class .pagination-lg for larger blocks or .pagination-sm for smaller blocks.</p>
+      <p>Use utility classes to change the alignment of the pagination:</p>
+      <p>Large:</p>
+      <ul class="pagination pagination-lg">
+        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+      </ul>
+
+      <p class="text-center">Default:</p>
+      <ul class="pagination justify-content-center">
+        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+      </ul>
+
+      <p class="text-right">Small:</p>
+      <ul class="pagination pagination-sm justify-content-end">
+        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+      </ul><br>
+
+      <h2>Breadcrumbs</h2>
+      <p>The .breadcrumb class indicates the current page's location within a navigational hierarchy (trong một hệ thống
+        phân cấp điều hướng):</p>
+      <ul class="breadcrumb justify-content-center">
+        <li class="breadcrumb-item"><a href="#">Photos</a></li>
+        <li class="breadcrumb-item"><a href="#">Summer 2017</a></li>
+        <li class="breadcrumb-item"><a href="#">Italy</a></li>
+        <li class="breadcrumb-item active">Rome</li>
+      </ul>
+    </div><br>
+
+    <!-- Tạo Dropdown trong bootstrap -->
+    <div class="container" style="border: 2px dashed #fffd80;">
+      <h1>Dropdowns</h1>
+
+      <h2>Dropdowns</h2>
+      <p>The .dropdown class is used to indicate a dropdown menu.</p>
+      <p>Use the .dropdown-menu class to actually build the dropdown menu.</p>
+      <p>To open the dropdown menu, use a button or a link with a class of .dropdown-toggle and data-toggle="dropdown".
+      </p>
+      <div class="dropdown">
+        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Dropdown button</button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#">Link 1</a>
+          <a class="dropdown-item" href="#">Link 2</a>
+          <a class="dropdown-item" href="#">Link 3</a>
+        </div>
+      </div><br>
+
+      <h2>Dropdown-divider + Dropdown Header + Active + Disabled</h2>
+      <p>The .dropdown-divider class is used to separate links inside the dropdown menu with a thin horizontal line:</p>
+      The .dropdown-header class is used to add headers inside the dropdown menu:
+      <div class="dropdown">
+        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Dropdown button</button>
+        <div class="dropdown-menu">
+          <h5 class="dropdown-header">Dropdown header</h5>
+          <a class="dropdown-item active" href="#">Link 1</a>
+          <a class="dropdown-item disabled" href="#">Link 2</a>
+          <a class="dropdown-item" href="#">Link 3</a>
+          <div class="dropdown-divider"></div>
+          <h5 class="dropdown-header">Dropdown header</h5>
+          <a class="dropdown-item" href="#">Another link</a>
+        </div>
+      </div><br>
+
+      <h2>Dropdowns Position</h2>
+      <p>You can also create a "dropright" or "dropleft" menu, by adding the .dropright or .dropleft class next to the
+        dropdown menu to right-align or left-align. Note that the caret/arrow is added automatically:</p>
+      <div class="container clearfix">
+        <div class="dropdown dropright float-left">
+          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+            Dropright button
+          </button>
+          <div class="dropdown-menu dropright">
+            <a class="dropdown-item" href="#">Link 1</a>
+            <a class="dropdown-item" href="#">Link 2</a>
+            <a class="dropdown-item" href="#">Link 3</a>
+          </div>
+        </div>
+
+        <div class="dropdown dropleft float-right">
+          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+            Dropleft button
+          </button>
+          <div class="dropdown-menu dropright">
+            <a class="dropdown-item" href="#">Link 1</a>
+            <a class="dropdown-item" href="#">Link 2</a>
+            <a class="dropdown-item" href="#">Link 3</a>
+          </div>
+        </div>
+      </div><br>
+    </div><br>
+    <!-- Tạo Collapsible trong bootstrap -->
+    <div class="container" style="border: 2px dashed #fffd80;">
+      <h1>Collapsible</h1>
+      <p>Collapsibles are useful when you want to hide and show large amount of content:</p>
+      <h2>Simple Collapsible</h2>
+      <p>Click on the button to toggle between showing and hiding content.</p>
+      <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo">Nút thu gọn</button><br>
+      <div id="demo" class="collapse">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      </div><br>
+      <p class="jumbotron">Example Explained (Giải thích ví dụ):<br>
+        The .collapse class indicates a collapsible element (a div in our example); this is the content that will be
+        shown or hidden with a click of a button. Dùng 1 div chứa content muốn giấu kèm id và class để liên kết tới nút
+        bấm có chèn data-toggle="tên class" và data-target="#tên id" của div chứa.
+        To control (show/hide) the collapsible content, add the data-toggle="collapse" attribute to an a element or a
+        button element. Then add the data-target="#id" attribute to connect the button with the collapsible content.
+        Note: For a elements, you can use the href attribute instead of the data-target attribute:</p><br>
+
+      <h2>Accordion (thanh gấp)</h2>
+      <p><strong>Note:</strong> The <strong>data-parent</strong> attribute makes sure that all collapsible elements
+        under the specified parent will be closed when one of the collapsible item is shown.</p>
+      <div id="accordion">
+
+        <div class="card">
+          <div class="card-header mx-0 p-0">
+            <a class="card-link d-block" style="line-height: 50px; text-indent: 20px;" data-toggle="collapse"
+              href="#collapseOne">
+              Mỗi 1 card có 2 div, 1 div để card-header chứa card-link, 1 div chứa content
+            </a>
+          </div>
+          <div id="collapseOne" class="collapse show" data-parent="#accordion">
+            <div class="card-body">
+              Div chứa content có class card-body và dc bao bởi div khác có data-parent="#tên id cha"
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header mx-0 p-0">
+            <a class="card-link d-block" style="line-height: 50px; text-indent: 20px;" data-toggle="collapse"
+              href="#collapseTwo">
+              Bên trên chèn class .collapse show để làm mẫu.
+            </a>
+          </div>
+          <div id="collapseTwo" class="collapse" data-parent="#accordion">
+            <div class="card-body">
+              Lorem ipsum..
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header mx-0 p-0">
+            <a class="card-link d-block" style="line-height: 50px; text-indent: 20px;" data-toggle="collapse"
+              href="#collapseThree">
+              Collapsible Group Item #3
+            </a>
+          </div>
+          <div id="collapseThree" class="collapse" data-parent="#accordion">
+            <div class="card-body">
+              Lorem ipsum..
+            </div>
+          </div>
+        </div>
+      </div><br>
+    </div><br>
+
+    <!-- Tạo Navigation Bars trong bootstrap -->
+    <div class="container" style="border: 2px dashed #fffd80;">
+      <h1>Navigation Bars</h1>
+      <h2>Horizontal Navigation Bar</h2>
+      <p>Add the .justify-content-center class to center the navigation bar.</p>
+
+      <!-- A horizontal navbar -->
+      <nav class="navbar navbar-expand-sm bg-light justify-content-center">
+        <!-- Links -->
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link 1</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link 2</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link 3</a>
+          </li>
+        </ul>
+      </nav><br>
+      <div class="container-fluid">
+        <h3>Basic Navbar Example</h3>
+        <p>A navigation bar is a navigation header that is placed at the top of the page.</p>
+        <p>The navbar-expand-xl|lg|md|sm class determines when the navbar should stack vertically (on extra large,
+          large, medium or small screens).</p>
+        <!-- Lớp navbar-expand-xl | lg | md | sm xác định thời điểm thanh điều hướng nên xếp theo chiều dọc (trên các màn hình cực lớn, lớn, vừa hoặc nhỏ). -->
+      </div><br>
+
+      <h2>Vertical Navigation Bar</h2>
+      <p>Remove the .navbar-expand-xl|lg|md|sm class to create a vertical navigation bar:</p>
+      <!-- A vertical navbar -->
+      <nav class="navbar bg-light d-inline-block">
+        <!-- Links -->
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link 1</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link 2</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link 3</a>
+          </li>
+        </ul>
+      </nav><br><br>
+
+      <h2>Colored Navbar with active/disabled state</h2>
+      <p>Use any of the .bg-color classes to change the background color of the navbar (.bg-primary, .bg-success,
+        .bg-info, .bg-warning, .bg-danger, .bg-secondary, .bg-dark and .bg-light).</p>
+      <p><b>Tip: </b>Add a white text color to all links in the navbar with the .navbar-dark class, or use the
+        .navbar-light class to add a black text color.</p>
+      <p><b>Active/disabled state</b>: Add the .active class to an <a> element to highlight the current link, or the
+          .disabled class to indicate that the link is un-clickable.</p>
+
+      <!-- Grey with black text, display inline flex để nó ko bị dài ra -->
+      <nav class="navbar navbar-expand-sm bg-warning navbar-light d-inline-flex">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Active</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled</a>
+          </li>
+        </ul>
+      </nav><br><br>
+
+      <h2>Brand / Logo with image and input</h2>
+      <p>The .navbar-brand class is used to highlight the brand/logo/project name of your page:</p>
+      <h5>Aligning items to left, right, and center within the Navbar</h5>
+      <ul>
+        <li>The .mx-auto class can be used to align the items to the center of the navbar.
+        <li>The .ms-auto class is used to align items to the right of the navbar.</li>
+        <li>The .me-auto class is used to align items to the left of that navbar.</li>
+        </li>
+      </ul>
+      <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <!-- Brand/logo -->
+        <a class="navbar-brand" href="#">Logo <img src="image/heart.png" alt="Logo" style="width:40px;"></a>
+        <!-- Links -->
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link 1</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link 2</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link 3</a>
+          </li>
+          <!-- Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+              Dropdown link
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Link 1</a>
+              <a class="dropdown-item" href="#">Link 2</a>
+              <a class="dropdown-item" href="#">Link 3</a>
+            </div>
+          </li>
+        </ul>
+        <!-- Thanh search -->
+        <div class="d-flex ml-auto order-5">
+          <!-- ml-auto canh phải -->
+          <form class="form-inline d-flex mr-auto order-5" action="/action_page.php">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search">
+            <button class="btn btn-success" type="submit">Search</button>
+          </form>
+        </div>
+      </nav><br><br>
+
+      <!-- Collapsible Navbar -->
+      <h2>Collapsible Navbar</h2>
+      <p>In this example, the navigation bar is hidden on small screens and replaced by a button in the top right corner
+        (try to re-size this window).</p>
+      <p>Only when the button is clicked, the navigation bar will be displayed.</p>
+      <p><b>Tip</b>: You can also remove the .navbar-expand-md class to ALWAYS hide navbar links and display the toggler
+        button.</p>
+      <p>To create a collapsible navigation bar, use a button with class="navbar-toggler", data-toggle="collapse" and
+        data-target="#thetarget". Then wrap the navbar content (links, etc) inside a div element with class="collapse
+        navbar-collapse", followed by an id that matches the data-target of the button: "thetarget".</p>
+      <nav class="navbar bg-dark navbar-dark">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <!-- form-inline prepend + append + text-->
+        <form class="form-inline mr-auto">
+          <!-- mr-auto canh trái -->
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">@</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Username">
+          </div>
+        </form>
+        <!-- Navbar text-->
+        <!-- <span class="navbar-text">
+          Some text
+        </span> -->
+        <!-- navbar-toggler bấm tắt  -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+          </ul>
+        </div>
+      </nav><br>
+    </div><br>
+
+    <!-- Tạo Stacked Form trong bootstrap -->
+    <div class="container" style="border: 2px dashed #fffd80;">
+      <h1>Forms</h1>
+      <p>Bootstrap provides two types of form layouts: </p>
+      <ul>
+        <li>Stacked (full-width) form (Biểu mẫu xếp)</li>
+        <li>Inline form</li>
+      </ul>
+
+      <h2>Stacked form</h2>
+      <form action="/action_page.php">
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+        </div>
+        <div class="form-group">
+          <label for="pwd">Password:</label>
+          <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+        </div>
+        <div class="form-group form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" name="remember"> Remember me
+          </label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form><br>
+
+      <h2>Inline Form with Utilities</h2>
+      <p>The inline form above feels "compressed", and will look much better with Bootstrap's spacing utilities. The
+        following example adds a right margin (.mr-sm-2) to each input on all devices (small and up). And a margin
+        bottom class (.mb-2) is used to style the input field when it breaks (goes from horizontal to vertical due to
+        not enough space/width):</p>
+      <form class="form-inline" action="/action_page.php">
+        <label for="email2" class="mb-2 mr-sm-2">Email:</label>
+        <input type="text" class="form-control mb-2 mr-sm-2" id="email2" placeholder="Enter email" name="email">
+        <label for="pwd2" class="mb-2 mr-sm-2">Password:</label>
+        <input type="text" class="form-control mb-2 mr-sm-2" id="pwd2" placeholder="Enter password" name="pswd">
+        <div class="form-check mb-2 mr-sm-2">
+          <!-- Phải căn margin left 4 thì ô check mới ko bị dính vào input pwd -->
+          <label class="form-check-label">
+            <input type="checkbox" class="form-check-input" name="remember"> Remember me
+          </label>
+        </div>
+        <button type="submit" class="btn btn-primary mb-2">Submit</button>
+      </form><br>
+    </div><br>
+
+
+    <!-- Tạo Carousel (trò kéo quân, giống slide) trong bootstrap -->
+    <div class="container" style="border: 2px dashed #fffd80;">
+      <h1>Carousel</h1>
+      <div id="demo" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ul class="carousel-indicators">
+          <li data-target="#demo" data-slide-to="0" class="active"></li>
+          <li data-target="#demo" data-slide-to="1"></li>
+          <li data-target="#demo" data-slide-to="2"></li>
+        </ul>
+        <!-- The slideshow -->
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="image/bg-anime-1.jpg" alt="a1" width="1100" height="500">
+          </div>
+          <div class="carousel-item">
+            <img src="image/bg-anime-2.jpg" alt="a2" width="1100" height="500">
+          </div>
+          <div class="carousel-item">
+            <img src="image/bg-anime-3.jpg" alt="a3" width="1100" height="500">
+          </div>
+        </div>
+        <!-- Left and right controls -->
+        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </a>
+      </div><br>
+    </div><br>
+
+    <!-- Tạo Modal trong bootstrap -->
+    <div class="container" style="border: 2px dashed #fffd80;">
+      <h1>Modal (hộp tiếp cận)</h1>
+      <p>The Modal component is a dialog box/popup window that is displayed on top of the current page:</p>
+      <p>Use the .fade class to add a fading effect when opening and closing the modal:</p>
+
+      <!-- Button to Open the Modal -->
+      <button type="button" class="btn btn-primary d-block m-auto" data-toggle="modal" data-target="#myModal">
+        Open modal
+      </button><br><br>
+
+      <!-- The Modal -->
+      <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">Modal Heading</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+              Modal body... <br>
+              Abc... <br>
+              Xyz...
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><br>
+  </body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <title>Menu ngang</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #333;
+      }
+      
+      #menu ul {
+        list-style-type: none;
+        background: #1f568b;
+        text-align: center;
+      }
+      
+      #menu ul li {
+        color: #f1f1f1;
+        display: inline-table;
+        width: 120px;
+        height: 40px; /**/
+        line-height: 40px; /**/
+        position: relative; /*để hiển thị mỗi phần sub-menu mà ko bị dropdown cả nguyên thanh menu*/
+      }
+      
+      #menu ul li a {
+        color: #f1f1f1;
+        text-decoration: none;
+        display: block;
+      }
+      
+      #menu ul li a:hover {
+        color: #333;
+        background: #f1f1f1;
+      }
+      
+      #menu ul li > .sub-menu {
+        display: none;
+        position: absolute; /*để hiển thị mỗi phần sub-menu mà ko bị dropdown cả nguyên thanh menu*/
+      }
+      
+      #menu ul li:hover .sub-menu {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="menu">
+    <ul>
+      <li><a href="#">Trang chủ</a></li>
+      <li>
+        <a href="#">Sản phẩm</a>
+        <ul class="sub-menu">
+          <li><a href="#">Laptop</a></li>
+          <li><a href="#">Máy tính bảng</a></li>
+          <li><a href="#">Smart phone</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Đối tác</a></li>
+      <li><a href="#">Hỏi đáp</a></li>
+      <li><a href="#">Liên hệ</a></li>
+    </ul>
+    </div>
+  </body>
+</html>
