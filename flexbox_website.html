@@ -23,6 +23,7 @@
       text-align: center;
       background: #1abc9c;
       color: white;
+      margin: -4px;
     }
     .header img {
       width: 100%;
@@ -30,7 +31,6 @@
 
     /* Style the top navigation bar */
     .navbar {
-      overflow: hidden;
       display: flex;
       background-color: #333;
       /* align-items: baseline; */ /* có thể cho căn theo baseline, ở dưới ko cần margin-top nữa */
@@ -108,11 +108,11 @@
     /* Column container */
     .row {
       display: flex;
-      flex-wrap: wrap; /* flex-wrap? */
+      flex-wrap: wrap;
     }
     
     /* Create two unequal columns that sits next to each other */
-    /* Sidebar/left column */
+    /* Sidebar(left column) */
     .side {
       flex: 30%;
       background-color: #f1f1f1;
@@ -173,12 +173,10 @@
 
   <!-- Header -->
   <div class="header">
-    <!-- <h1>My Website</h1>
-    <p>With a <b>flexible</b> layout</p> -->
     <img src="image/cogaitrenmatnuoc-banner.jpg" alt="banner">
   </div>
 
-  <!-- Navigation Bar: thanh điều hướng and search-->
+  <!-- Navigation Bar: thanh điều hướng and search -->
   <div class="navbar">
     <a href="#home" class="active">Home</a>
     <a href="#about">About</a>
