@@ -2,7 +2,6 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tạo thử web responsive</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -23,7 +22,8 @@
       text-align: center;
       background: #1abc9c;
       color: white;
-      margin: -4px;
+      margin: 0;
+      margin-bottom: -4px;
     }
     .header img {
       width: 100%;
@@ -31,9 +31,10 @@
 
     /* Style the top navigation bar */
     .navbar {
+      margin: 0;
       display: flex;
       background-color: #333;
-      /* align-items: baseline; */ /* có thể cho căn theo baseline, ở dưới ko cần margin-top nữa */
+      /* align-items: baseline; */ /* có thể cho căn các elements theo baseline, ko cần margin-top để đẩy nữa như bên dưới */
     }
     
     /* Style the navigation bar links */
@@ -56,13 +57,13 @@
       color: white;
     } */
     
-    /* Thanh tìm kiếm */
+    /* Search-bar */
     .navbar .search-container {
-      margin-left: auto; /* push về 2 bên phải */
+      margin-left: auto; /* push search-bar về bên phải */
     }
     .navbar input[type=text] {
       padding: 7px;
-      margin-top: 8px; /* cho lề trên để đẩy thanh search vào giữa */
+      margin-top: 8px; /* cho lề trên để đẩy search-bar vào giữa */
       font-size: 17px;
       border: none;
       border-top-left-radius: 3px;
@@ -105,6 +106,7 @@
       }
     }
     
+    /*============ BODY WEBSITE ============*/
     /* Column container */
     .row {
       display: flex;
@@ -175,7 +177,7 @@
   <div class="header">
     <img src="image/cogaitrenmatnuoc-banner.jpg" alt="banner">
   </div>
-
+  
   <!-- Navigation Bar: thanh điều hướng and search -->
   <div class="navbar">
     <a href="#home" class="active">Home</a>

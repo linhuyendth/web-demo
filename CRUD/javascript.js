@@ -12,49 +12,59 @@ function clickNavViewListEmployees() {
   $(".main").load("viewListEmployees.html");
   buildTable();
 }
-// ============Khởi tạo employee=============
+// ============Khởi tạo employee====================
 var employees = []; // tạo list nhân viên
-var counter = 0;
 
 // hàm khởi tạo
-function Employee(name, department, phone) {
-  this.id = ++counter;
+function Employee(id, name, department, phone) {
+  this.id = id;
   this.name = name;
   this.department = department;
   this.phone = phone;
 }
 
-function initEmployees() {
-  if(employees != null && employees.length > 0) {
-    return; // nếu có rồi thì thoát ra
-  }
-  // init data
-  employees.push(new Employee("Nguyễn Văn A", "Administrator", "(+84) 123-4567"));
-  employees.push(new Employee("Nguyễn Văn B", "Customer Service", "(+84) 258-5554"));
-  employees.push(new Employee("Nguyễn Văn C", "Human Resources", "(+84) 565-5412"));
+function getListEmployees() {
+  // call API from server
+  $.get("https://62e2022c3891dd9ba8dec287.mockapi.io/employees", function(data,status){
+    // reset list employees
+    employees = [];
+    // error
+    if (status == "error") {
+      alert("Error when loading data.");
+      return;
+    }
+    // success
+    parseData(data);
+    fillEmployeeToTable();
+  });
+}
+
+function parseData(data) {
+  // với mỗi item của data tải từ server, lấy các field từ item qua việc khởi tạo employee và đẩy vào danh sách employees của mình để hiển thị lên html
+  data.forEach(function(item) {
+    employees.push(new Employee(item.id, item.name, item.department, item.phone));
+  });
+}
+
+function fillEmployeeToTable() {
+  employees.forEach(function(element) {
+    $('tbody').append(
+      '<tr>' +
+        '<td>' + element.name + '</td>' +
+        '<td>' + element.department + '</td>' +
+        '<td>' + element.phone + '</td>' +
+        '<td>' +
+          '<a class="edit" title="Edit" data-toggle="tooltip" onclick="openModalUpdate('+ element.id +')"><i class="material-icons">&#xE254;</i></a>' +
+          '<a class="delete" title="Delete" data-toggle="tooltip" onclick="openConfirmDelete('+ element.id +')"><i class="material-icons">&#xE872;</i></a>' +
+        '</td>' +
+      '</tr>')
+  });
 }
 
 function buildTable() {
-  setTimeout(function name(params) {
-  
-    // cho bảng trống đi để thêm lại toàn bộ khi cập nhật (làm tạm)
-    $('tbody').empty();
-    
-    initEmployees();
-    employees.forEach(function(element) {
-      $('tbody').append(
-        '<tr>' +
-          '<td>' + element.name + '</td>' +
-          '<td>' + element.department + '</td>' +
-          '<td>' + element.phone + '</td>' +
-          '<td>' +
-            '<a class="edit" title="Edit" data-toggle="tooltip" onclick="openModalUpdate('+ element.id +')"><i class="material-icons">&#xE254;</i></a>' +
-            '<a class="delete" title="Delete" data-toggle="tooltip" onclick="openConfirmDelete('+ element.id +')"><i class="material-icons">&#xE872;</i></a>' +
-          '</td>' +
-        '</tr>')
-    });
-    
-  }, 500);
+  // cho bảng trống đi để thêm lại toàn bộ khi cập nhật (làm tạm)
+  $('tbody').empty();
+  getListEmployees();
 }
 
 // ==============Modal Add===============
@@ -91,7 +101,8 @@ function save() {
 }
 
 // cho save case add
-function addEmployee() {
+function addEmployee() { // post = create, add
+  // get data
   var name = document.getElementById("name").value;
   var department = document.getElementById("department").value;
   var phone = document.getElementById("phone").value;
@@ -99,10 +110,25 @@ function addEmployee() {
   // if validate fail -> return
   
   // if validate success -> tiếp code sau
-  employees.push(new Employee(name, department, phone));
-  hideModal();
-  showAlertSuccess();
-  buildTable();
+  // post những value đã điền từ modal lên data server
+  var employee = {
+      name: name,
+      department: department,
+      phone: phone
+    } // post data user đã nhập theo dạng json
+  $.post("https://62e2022c3891dd9ba8dec287.mockapi.io/employees",
+    employee,
+    function(data, status){
+      // error
+      if(status == "error"){
+        alert("error when adding new employee");
+        return;
+      }
+      // success
+      hideModal();
+      showAlertSuccess();
+      buildTable();
+    });
 }
 
 // ============Modal Update============
@@ -129,17 +155,28 @@ function updateEmployee() {
   // TODO validate
   // if validate fail -> return
   
-  var i = employees.findIndex(e => e.id == id);
-  
-  // update var trên vào list
-  employees[i].name = name;
-  employees[i].department = department;
-  employees[i].phone = phone;
-  
   // if validate success -> tiếp
-  hideModal();
-  showAlertSuccess();
-  buildTable();
+  var employee = {
+    name: name,
+    department: department,
+    phone: phone
+  }
+  $.ajax({
+    url: 'https://62e2022c3891dd9ba8dec287.mockapi.io/employees/' + id,
+    type: 'PUT',
+    data: employee,
+    success: function(result) {
+      // error
+      if(result==undefined||result==null){
+        alert("Error when deleting data");
+        return;
+      }
+      // success
+      hideModal();
+      showAlertSuccess();
+      buildTable();
+    }
+  })
 }
 
 function showAlertSuccess() {
@@ -161,10 +198,20 @@ function openConfirmDelete(id) {
 
 function deleteEmployee(id) {
   // TODO validate
-  var i = employees.findIndex(e => e.id == id);
-  employees.splice(i,1); // hàm xoá xong phần tử thì dồn lại
   
-  showAlertSuccess();
-  buildTable();
+  $.ajax({
+    url: 'https://62e2022c3891dd9ba8dec287.mockapi.io/employees/' + id,
+    type: 'DELETE',
+    success: function(result) {
+      // error
+      if(result == undefined || result == null) {
+        alert("Error when deleting data");
+        return;
+      }
+      // success
+      showAlertSuccess();
+      buildTable();
+    }
+  })
 }
 

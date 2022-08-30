@@ -1,0 +1,40 @@
+<!-- <div class="header">
+  <h2>Scroll Down</h2>
+  <p>Scroll down to see the sticky effect.</p>
+</div> -->
+
+<div id="navbar">
+  <a onclick="clickNavHome()" class="active">Home</a>
+  <a href="#">About</a>
+  <a href="#">Contact</a>
+  <a onclick="clickNavViewListEmployees()">View list employees</a>
+  <div class="search-container">
+    <form action="/action_page.php">
+      <input type="text" placeholder="Search.." name="search">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+  </div>
+</div>
+
+<!-- sticky navbar -->
+<!-- <div id="navbar">
+  <a class="active" href="javascript:void(0)">Home</a>
+  <a href="javascript:void(0)">View list employees</a>
+  <a href="javascript:void(0)">Contact</a>
+</div>
+
+
+<script>
+  window.onscroll = function () { myFunction() };
+
+  var navbar = document.getElementById("navbar");
+  var sticky = navbar.offsetTop;
+  
+  function myFunction() {
+    if (window.pageYOffset >= sticky) {
+      navbar.classList.add("sticky")
+    } else {
+      navbar.classList.remove("sticky");
+    }
+  }
+</script> -->
