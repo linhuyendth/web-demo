@@ -2,12 +2,7 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
 .header {
-  background-color: #70b8f7;
   padding: 30px;
   text-align: center;
   font-size: 35px;
@@ -16,7 +11,8 @@ body {
 }
 
 .footer {
-  background-color: #70b8f7;
+  color: #ddd;
+  background-color: #333;
   padding: 10px;
   text-align: center;
 }
