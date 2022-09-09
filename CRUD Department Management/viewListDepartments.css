@@ -22,7 +22,7 @@ body {
   font-size: 22px;
 }
 
-.table-title .add-new {
+.table-title .btn-modify {
   float: right;
   height: 30px;
   font-weight: bold;
@@ -33,7 +33,7 @@ body {
   line-height: 13px;
 }
 
-.table-title .add-new i {
+.table-title .btn-modify i {
   margin-right: 4px;
 }
 

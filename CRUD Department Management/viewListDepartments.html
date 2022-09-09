@@ -3,17 +3,20 @@
     <div class="table-wrapper">
       <div class="table-title">
         <div class="row">
-          <div class="col-sm-8">
+          <div class="col-sm-6">
             <h2>Department <b>Details</b></h2>
           </div>
-          <div class="col-sm-4">
-            <button type="button" class="btn btn-info add-new" data-toggle="modal" onclick="openModalAdd()"><i class="fa fa-plus"></i> Add New</button>
+          <div class="col-sm-6">
+            <button type="button" class="btn btn-info btn-modify" data-toggle="modal" onclick="deleteAllDepartments()"><i class="fa fa-minus"></i> Delete All</button>
+            <button type="button" class="btn btn-info btn-modify mr-2" data-toggle="modal" onclick="openModalAdd()"><i class="fa fa-plus"></i> Add New</button>
+            <!-- do thuộc tính float right trong css mà nút để đảo ngược lại -->
           </div>
         </div>
       </div>
       <table class="table table-bordered">
         <thead>
           <tr>
+            <th width="38px"><input type="checkbox" id="checkbox-all" name="checkbox-all" onclick="onchangeCheckboxAll()"></th>
             <th>Name</th>
             <th>Author</th>
             <th>Created Date</th>
@@ -47,13 +50,14 @@
           
           <label for="name"><b>Name</b></label>
           <input type="text" placeholder="Enter Name" name="name" id="name" required>
-
+          <p style="color: red; margin-top: -20px; font-size: smaller; font-style: italic;" id="nameErrorMes"></p>
+          
           <label for="author" id="authorLabel"><b>Author</b></label>
           <input type="text" name="author" id="author" disabled>
           
           <label for="createdDate" id="createdDateLabel"><b>Created Date</b></label>
           <input type="text" name="createdDate" id="createdDate" disabled>
-
+        
         </div>
       </div>
       

@@ -32,13 +32,31 @@ function getListDepartments() {
     // success
     departments = data;
     fillDepartmentToTable();
+    resetCheckboxAll();
   });
 }
 
+function resetCheckboxAll() {
+  // reset checkboxAll
+  document.getElementById("checkbox-all").checked = false;
+  // reset checkbox cho các elements (chắc ko cần những dòng này đâu)
+  // var i = 0;
+  // while (true) {
+  //   var checkboxElement = document.getElementById("checkbox-" + i);
+  //   // nếu tìm thấy những checkbox con thì
+  //   if (checkboxElement !== undefined && checkboxElement !== null) {
+  //     // reset luôn cho các check box con
+  //     checkboxElement.checked = false;
+  //     i++;
+  //   }
+  // }
+}
+
 function fillDepartmentToTable() {
-  departments.forEach(function(element) {
+  departments.forEach(function(element, index) {
     $('tbody').append(
       '<tr>' +
+        '<td><input type="checkbox" onclick="onchangeCheckboxElement()" id="checkbox-' + index + '"></td>' +
         '<td>' + element.name + '</td>' +
         '<td>' + element.author.fullName + '</td>' +
         '<td>' + element.createdDate + '</td>' +
@@ -71,8 +89,17 @@ function resetFormAdd() {
   document.getElementById("author").style.display = "none";
   document.getElementById("createdDateLabel").style.display = "none";
   document.getElementById("createdDate").style.display = "none";
+  hideNameErrorMes();
 }
 
+function hideNameErrorMes() {
+  document.getElementById("nameErrorMes").style.display = "none";
+}
+
+function showNameErrorMes(mes) {
+  document.getElementById("nameErrorMes").style.display = "block";
+  document.getElementById("nameErrorMes").innerHTML = mes;
+}
 
 function showModal() {
   $('#myModal').modal('show');
@@ -82,7 +109,7 @@ function hideModal() {
   $('#myModal').modal('hide');
 }
 
-//=============Save has 2 case==============
+//=============Save có 2 trường hợp==============
 function save() {
     var id = document.getElementById("id").value;
     if (id == null || id == "") {
@@ -92,57 +119,65 @@ function save() {
     }
 }
 
-// cho save case add
+// TH1: save add
 function addDepartment() { // post = create, add
-  // get data
+  // get name department để validate
   var name = document.getElementById("name").value;
-
-  // TODO validate
-  // if validate fail -> return
   
-  // if validate success -> tiếp code sau
-  // post những value đã điền từ modal lên data server
-  var department = {
-      name: name,
-      authorId: 3
+  // validate check name length
+  if (!name || name.length < 3 || name.length > 30) {
+    showNameErrorMes("Department name must be from 3 to 30 characters!")
+    return; // thoát lệnh save để ko lưu xuống db
+  }
+  
+  // validate check name unique
+  $.get("http://localhost:8080/api/v1/departments/" + name + "/exists", function(data, status){
+    
+    // if error
+    if (status == "error") {
+      // TODO
+      alert("Error when loading data.");
+      return;
     }
-  // post data user đã nhập theo dạng json
-  $.ajax({
-    url: 'http://localhost:8080/api/v1/departments',
-    type: 'POST',
-    data: JSON.stringify(department), // convert value js sang string json
-    contentType: "application/json", // type of body (json, xml, text)
-    // dataType: 'json', // datatype return in method post in controller (ở đây đang trả về String nên cmt lại)
-    success: function(data, textStatus, xhr) {
-      // if (success)
-      hideModal();
-      showAlertSuccess();
-      buildTable();
-      console.log(data); // hiện ra Created successfully! của mình
-      console.log(textStatus); // success
-      console.log(xhr); // ?
-      },
-      // if (error)
-      error(jqXHR, textStatus, errorThrown){
-        alert("Error when deleting data");
-        console.log(jqXHR);
-        console.log(textStatus);
-        console.log(errorThrown);
-    }
-  })
-  $.post("http://localhost:8080/api/v1/departments",
-    department,
-    function(data, status){
-      // error
-      if(status == "error"){
-        alert("error when adding new Department");
-        return;
+    
+    // check data có trả về boolean true/false như hàm đã viết trong controller hay ko
+    console.log(data);
+    
+    // check data
+    if (data) { // nếu tồn tại thì show error mes
+      showNameErrorMes("This department name already exists!")  
+    } else { // nếu ko tồn tại thì gọi api để create
+      // post những value đã điền từ modal lên data server
+      var department = {
+        name: name,
+        authorId: 3
       }
-      // success
-      hideModal();
-      showAlertSuccess();
-      buildTable();
-    });
+      // post data user đã nhập theo dạng json
+      $.ajax({
+        url: 'http://localhost:8080/api/v1/departments',
+        type: 'POST',
+        data: JSON.stringify(department), // convert value js sang string json
+        contentType: "application/json", // type of body (json, xml, text)
+        // dataType: 'json', // datatype return in method post in controller (ở đây đang trả về String nên cmt lại)
+        success: function(data, textStatus, xhr) {
+          // if (success)
+          hideModal();
+          showAlertSuccess();
+          buildTable();
+          console.log(data); // hiện ra Created successfully! của mình
+          console.log(textStatus); // success
+          console.log(xhr); // ?
+          },
+          // if (error)
+          error(jqXHR, textStatus, errorThrown){
+            alert("Error when deleting data");
+            console.log(jqXHR);
+            console.log(textStatus);
+            console.log(errorThrown);
+        }
+      })
+    }
+  });
 }
 
 // ============Modal Update============
@@ -152,7 +187,10 @@ function resetFormUpdate() {
   document.getElementById("author").style.display = "block";
   document.getElementById("createdDateLabel").style.display = "block";
   document.getElementById("createdDate").style.display = "block";
+  hideNameErrorMes();
 }
+
+var oldName;
 
 function openModalUpdate(id) {
   // phải gọi api get data lên đã để user ko thấy form trống khi chưa load data xong
@@ -169,6 +207,9 @@ function openModalUpdate(id) {
     showModal();
     resetFormUpdate();
     
+    // lưu lại tên cũ nếu ko chỉnh sửa gì update, làm thế này để ko bị báo lỗi trùng tên khi lưu
+    oldName = data.name;
+    
     // sau đó fill data vào
     document.getElementById("id").value = data.id; // field này ẩn
     document.getElementById("name").value = data.name;
@@ -177,41 +218,71 @@ function openModalUpdate(id) {
   });
 }
 
-// cho save case update
+// TH2: save update
 function updateDepartment() {
   var id = document.getElementById("id").value; // tìm bằng id ẩn
   var name = document.getElementById("name").value; // user nhập info update rồi gán vào var
   
-  // TODO validate
-  // if validate fail -> return
-  
-  // if validate success -> tiếp
-  var department = {
-    name: name
+  // validate check name length
+  if (!name || name.length < 3 || name.length > 30) {
+    showNameErrorMes("Department name must be from 3 to 30 characters!");
+    return; // thoát lệnh save để ko lưu xuống db
   }
-  $.ajax({
-    url: 'http://localhost:8080/api/v1/departments/' + id,
-    type: 'PUT',
-    data: JSON.stringify(department), // convert value js sang string json
-    contentType: "application/json", // type of body (json, xml, text)
-    // dataType: 'json', // datatype return in method put in controller (ở đây đang trả về String nên cmt lại)
-    success: function(data, textStatus, xhr) {
-      // if (success)
-      hideModal();
-      showAlertSuccess();
-      buildTable();
-      console.log(data); // hiện ra Created successfully! của mình
-      console.log(textStatus); // success
-      console.log(xhr); // ?
-      },
-      // if (error)
-      error(jqXHR, textStatus, errorThrown){
-        alert("Error when deleting data");
-        console.log(jqXHR);
-        console.log(textStatus);
-        console.log(errorThrown);
+  
+  // validate check name unique
+  if (oldName == name) { // nếu tên ko update gì
+    // thì vẫn cho thông báo save thành công bình thường rồi return luôn để khỏi chạy những hàm dưới nữa
+    hideModal();
+    showAlertSuccess();
+    buildTable();
+    return;
+  }
+
+  // còn nếu tên dc update thì mới thực hiện những hàm này
+  $.get("http://localhost:8080/api/v1/departments/" + name + "/exists", function(data, status){
+    
+    // if error
+    if (status == "error") {
+      // TODO
+      alert("Error when loading data.");
+      return;
     }
-  })
+    
+    // check data có trả về boolean true/false như hàm đã viết trong controller hay ko
+    console.log(data);
+    
+    // check data
+    if (data) { // nếu tồn tại thì show error mes
+      showNameErrorMes("This department name already exists!")  
+    } else { // nếu name ko tồn tại thì gọi api để update
+      var department = {
+        name: name
+      }
+      $.ajax({
+        url: 'http://localhost:8080/api/v1/departments/' + id,
+        type: 'PUT',
+        data: JSON.stringify(department), // convert value js sang string json
+        contentType: "application/json", // type of body (json, xml, text)
+        // dataType: 'json', // datatype return in method put in controller (ở đây đang trả về String nên cmt lại)
+        success: function(data, textStatus, xhr) {
+          // if (success)
+          hideModal();
+          showAlertSuccess();
+          buildTable();
+          console.log(data); // hiện ra Updated successfully! của mình
+          console.log(textStatus); // success
+          console.log(xhr); // ?
+          },
+          // if (error)
+          error(jqXHR, textStatus, errorThrown){
+            alert("Error when deleting data");
+            console.log(jqXHR);
+            console.log(textStatus);
+            console.log(errorThrown);
+        }
+      })
+    }
+  });
 }
 
 function showAlertSuccess() {
@@ -234,7 +305,9 @@ function openConfirmDelete(id) {
 
 function deleteDepartment(id) {
   // TODO validate
-
+  // trước khi xoá thì phải check xem id đó có còn hay ko
+  // nếu còn thì cho xoá đi bằng mấy code dưới
+  // nếu ko còn thì show alert kêu refresh lại trang vì data trong tab trang này đã cũ
   $.ajax({
     url: 'http://localhost:8080/api/v1/departments/' + id,
     type: 'DELETE',
@@ -250,4 +323,96 @@ function deleteDepartment(id) {
     }
   })
 }
+
+// ==============Delete All===============
+function onchangeCheckboxElement() {
+  var i = 0;
+  while (true) {
+    var checkboxElement = document.getElementById("checkbox-" + i);
+    // nếu tìm thấy những id cần xoá thì
+    if (checkboxElement !== undefined && checkboxElement !== null) {
+      // kiểm tra nếu có 1 id chưa dc check box thì
+      if (!checkboxElement.checked) {
+        // cho checkboxAll ko dc tích nữa và thoát loop
+        document.getElementById("checkbox-all").checked = false;
+        return;
+      }
+      i++;
+    }
+  }
+}
+
+function onchangeCheckboxAll() {
+  var i = 0;
+  while (true) {
+    var checkboxElement = document.getElementById("checkbox-" + i);
+    if (checkboxElement !== undefined && checkboxElement !== null) {
+      checkboxElement.checked = document.getElementById("checkbox-all").checked
+      // giải thích cho luồng hoạt động của dòng trên
+      // if (document.getElementById("checkbox-all").checked) {
+      //   checkboxElement.checked = true;
+      // } else {
+      //   checkboxElement.checked = false;
+      // }
+      i++;
+    } else {
+      break;
+    }
+  }
+}
+
+function deleteAllDepartments() {
+  // get checked
+  var ids = [];
+  var i = 0;
+  var names = [];
+
+  while(true) {
+    var checkboxElement = document.getElementById("checkbox-" + i);
+    if (checkboxElement !== undefined && checkboxElement !== null) {
+      if (checkboxElement.checked) {
+        ids.push(departments[i].id);
+        names.push(departments[i].name);
+      }
+      i++;
+    } else {
+      break;
+    }
+  }
+
+  // sau khi viết 1 đoạn code dài thì nên console.log() kiểm thử
+  console.log(ids);
+  
+  // confirm
+  var result = confirm("Do you want to delete " + names + "?");
+  if (result) {
+    // nếu đúng thì gọi api lên để delete
+    $.ajax({
+      url: 'http://localhost:8080/api/v1/departments?ids=' + ids,
+      type: 'DELETE',
+      success: function(result) {
+        // error
+        if(result == undefined || result == null) {
+          alert("Error when deleting data");
+          return;
+        }
+        // success
+        showAlertSuccess();
+        buildTable();
+      }
+    });
+  } // nếu ko thì chẳng có gì xảy ra cả
+}
+
+// reset form thành các trường rỗng mỗi khi load lại
+function resetFormAdd() {
+  document.getElementById("titleModal").innerHTML = "Add Department";
+  document.getElementById("id").value = "";
+  document.getElementById("name").value = "";
+  document.getElementById("authorLabel").style.display = "none";
+  document.getElementById("author").style.display = "none";
+  document.getElementById("createdDateLabel").style.display = "none";
+  document.getElementById("createdDate").style.display = "none";
+}
+
 
