@@ -14,13 +14,23 @@ function clickNavViewListDepartments() {
 }
 // ============Khởi tạo Department====================
 var departments = []; // tạo list phòng ban
+var currentPage = 1; // mặc định cho trang hiện tại là 1
+var size = 4; // cho hiện 4 bản ghi
 
 function getListDepartments() {
+  
+  var url = 'http://localhost:8080/api/v1/departments';
+  
+  url += '?page=' + currentPage + '&size=' + size; 
+  
   // call API from server
-  $.get("http://localhost:8080/api/v1/departments", function(data, status){
+  $.get(url, function(data, status){
     
     // reset list departments
     departments = [];
+    
+    // check datd chứa content, pageable, ... (do đã đổi api sang có pageable nên ko thể getAll dc nữa)
+    console.log(data);
 
     // error
     if (status == "error") {
@@ -30,10 +40,54 @@ function getListDepartments() {
     }
     
     // success
-    departments = data;
+    departments = data.content;
     fillDepartmentToTable();
     resetCheckboxAll();
+    pagingTable(data.totalPages);
   });
+}
+
+function pagingTable(pageNums) {
+  var pagingStr = '';
+
+  // nếu số page > 1 thì thêm previous, số page và next
+  if (pageNums > 1 && currentPage > 1) {
+    pagingStr += '<li class="page-item"><a class="page-link" onclick="previousPage()">Previous</a></li>';
+  }
+  
+  for (let i = 0; i < pageNums; i++) {
+    pagingStr += '<li class="page-item '+ (currentPage == (i + 1) ? 'active' : '') +'"><a class="page-link" onclick="changePage('+ (i + 1) +')">' + (i + 1) + '</a></li>';
+    // cho .active vào thẻ <a> hay <li> đều ok
+  }
+  
+  if (pageNums > 1 && currentPage < pageNums) {
+    pagingStr += '<li class="page-item"><a class="page-link" onclick="nextPage()">Next</a></li>';
+  }
+
+  $('#pagination').empty();
+  $('#pagination').append(pagingStr); // đưa các <li> vào <ul>
+}
+
+function resetPage() { // để sau khi delete từ set về trang 1
+  currentPage = 1;
+  size = 3;
+}
+
+function changePage(page) {
+  if (page == currentPage) {
+    return; // nếu onclick vào page 1 = currentPage thì ko xảy ra gì cả, return luôn
+  }
+  // còn nếu onclick vào page khác thì
+  currentPage = page;
+  buildTable(); // làm empty tbody và get list lại
+}
+
+function previousPage() {
+  changePage(currentPage - 1);
+}
+
+function nextPage() {
+  changePage(currentPage + 1);
 }
 
 function resetCheckboxAll() {
@@ -319,6 +373,7 @@ function deleteDepartment(id) {
       }
       // success
       showAlertSuccess();
+      resetPage(); // phải reset page trước khi build lại table
       buildTable();
     }
   })
@@ -398,6 +453,7 @@ function deleteAllDepartments() {
         }
         // success
         showAlertSuccess();
+        resetPage(); // phải reset page trước khi build lại table
         buildTable();
       }
     });
