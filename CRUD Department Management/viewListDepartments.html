@@ -17,9 +17,9 @@
         <thead>
           <tr>
             <th width="38px"><input type="checkbox" id="checkbox-all" name="checkbox-all" onclick="onchangeCheckboxAll()"></th>
-            <th>Name</th>
-            <th>Author</th>
-            <th>Created Date</th>
+            <th>Name<i class="fa fa-fw" onclick="changeSort('name')" id="th-name"></i></th>
+            <th>Author<i class="fa fa-fw" onclick="changeSort('author.fullName')" id="th-author"></i></th>
+            <th>Created Date<i class="fa fa-fw" onclick="changeSort('createdDate')" id="th-createdDate"></i></th>
             <th>Actions</th>
           </tr>
         </thead>

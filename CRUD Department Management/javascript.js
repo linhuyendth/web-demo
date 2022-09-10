@@ -12,16 +12,21 @@ function clickNavViewListDepartments() {
   $(".main").load("viewListDepartments.html");
   buildTable();
 }
-// ============Khởi tạo Department====================
+// ============ Paging Sorting Department====================
 var departments = []; // tạo list phòng ban
 var currentPage = 1; // mặc định cho trang hiện tại là 1
-var size = 4; // cho hiện 4 bản ghi
+var size = 3; // cho hiện 4 bản ghi
+var sortField = 'modifiedDate';
+// mặc định set desc để khi add sẽ đưa kết quả vừa add lên trang đầu
+var isAsc = false;
 
 function getListDepartments() {
   
   var url = 'http://localhost:8080/api/v1/departments';
   
   url += '?page=' + currentPage + '&size=' + size; 
+  
+  url += '&sort=' + sortField + ',' + (isAsc? 'asc':'desc');
   
   // call API from server
   $.get(url, function(data, status){
@@ -44,7 +49,44 @@ function getListDepartments() {
     fillDepartmentToTable();
     resetCheckboxAll();
     pagingTable(data.totalPages);
+    renderSortUI();
   });
+}
+
+function renderSortUI() {
+  var sortTypeClass = isAsc? 'fa-sort-asc':'fa-sort-desc';
+  // keyword search: add/remove class to element in js
+  
+  switch (sortField) {
+    case 'name':
+      changeIconSort('th-name', sortTypeClass);
+      // reset lại về fa-sort
+      changeIconSort('th-author', 'fa-sort');
+      changeIconSort('th-createdDate', 'fa-sort');
+      break;
+    case 'author.fullName':
+      changeIconSort('th-author', sortTypeClass);
+      changeIconSort('th-name', 'fa-sort');
+      changeIconSort('th-createdDate', 'fa-sort');
+      break;
+    case 'createdDate':
+      changeIconSort('th-createdDate', sortTypeClass);
+      changeIconSort('th-name', 'fa-sort');
+      changeIconSort('th-author', 'fa-sort');
+      break;
+  
+    default: // mặc định nếu mà chưa sort gì cả thì hiển thị icon fa-sort ở các cột lên
+      // remove tất cả trước khi add thêm
+      changeIconSort('th-name', 'fa-sort');
+      changeIconSort('th-author', 'fa-sort');
+      changeIconSort('th-createdDate', 'fa-sort');
+      break;
+  }
+}
+
+function changeIconSort(id, sortTypeClass) {
+  document.getElementById(id).classList.remove('fa-sort', 'fa-sort-asc', 'fa-sort-desc');
+  document.getElementById(id).classList.add(sortTypeClass);
 }
 
 function pagingTable(pageNums) {
@@ -88,6 +130,27 @@ function previousPage() {
 
 function nextPage() {
   changePage(currentPage + 1);
+}
+
+function changeSort(field) { // chuyển đổi asc, desc cho các fields trong table
+  if (field == sortField) {
+    isAsc = !isAsc; // nếu mà bấm vào nút sort field thì sẽ đảo chiều sort
+  } else { // còn lại các field khác reset lại là asc
+    sortField = field; // field khác
+    isAsc = true;
+  }
+  buildTable();
+}
+
+function resetSort() {
+  sortField = 'modifiedDate';
+  isAsc = false;
+}
+
+function resetTable() {
+  resetPage();
+  resetSort();
+  resetCheckboxAll();
 }
 
 function resetCheckboxAll() {
@@ -217,6 +280,7 @@ function addDepartment() { // post = create, add
           // if (success)
           hideModal();
           showAlertSuccess();
+          resetTable(); // reset hết trước khi gọi lại api để build table
           buildTable();
           console.log(data); // hiện ra Created successfully! của mình
           console.log(textStatus); // success
@@ -288,6 +352,7 @@ function updateDepartment() {
     // thì vẫn cho thông báo save thành công bình thường rồi return luôn để khỏi chạy những hàm dưới nữa
     hideModal();
     showAlertSuccess();
+    resetTable();
     buildTable();
     return;
   }
@@ -322,6 +387,7 @@ function updateDepartment() {
           // if (success)
           hideModal();
           showAlertSuccess();
+          resetTable();
           buildTable();
           console.log(data); // hiện ra Updated successfully! của mình
           console.log(textStatus); // success
@@ -373,7 +439,7 @@ function deleteDepartment(id) {
       }
       // success
       showAlertSuccess();
-      resetPage(); // phải reset page trước khi build lại table
+      resetTable(); // phải reset hết trước khi build lại table
       buildTable();
     }
   })
@@ -453,7 +519,7 @@ function deleteAllDepartments() {
         }
         // success
         showAlertSuccess();
-        resetPage(); // phải reset page trước khi build lại table
+        resetTable(); // phải reset hết trước khi build lại table
         buildTable();
       }
     });
