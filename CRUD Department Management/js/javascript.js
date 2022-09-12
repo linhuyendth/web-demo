@@ -268,7 +268,7 @@ function addDepartment() { // post = create, add
       var department = {
         name: name,
         authorId: 3
-      }
+      };
       // post data user đã nhập theo dạng json
       $.ajax({
         url: 'http://localhost:8080/api/v1/departments',

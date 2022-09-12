@@ -13,6 +13,14 @@
           </div>
         </div>
       </div>
+      <!-- Search bar -->
+      <div class="input-group mb-2">
+        <input title="Type in a name" type="search" style="border-radius: 0; border-color: #E9E9E9;" class="form-control" placeholder="Search department name or author..." id="input-search-department" onkeyup="enterForSearch(event)"/>
+        <button type="button" class="input-group-text border-0" id="search-addon" style="border-radius: 0; width: 100px; justify-content: center; background-color: #E9E9E9;" onclick="handleSearch()">
+          <i class="fa fa-search"></i>
+        </button>
+      </div>
+
       <table class="table table-bordered">
         <thead>
           <tr>
