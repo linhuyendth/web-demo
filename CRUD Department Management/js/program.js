@@ -19,6 +19,16 @@ function isLogin() {
   return false;
 }
 
+function logout() {
+  localStorage.removeItem("ID");
+  localStorage.removeItem("FULL_NAME");
+  localStorage.removeItem("USER_NAME");
+  localStorage.removeItem("EMAIL");
+  localStorage.removeItem("PASSWORD");
+  // redirect sang trang login
+  window.location.replace("http://127.0.0.1:5500/login.html");
+}
+
 function clickNavHome() {
   $(".main").load("home.html");
 }
@@ -252,7 +262,7 @@ function fillDepartmentToTable() {
 }
 
 function buildTable() {
-  // cho bảng trống đi để thêm lại toàn bộ khi cập nhật (làm tạm)
+  // cho bảng trống đi để thêm lại toàn bộ khi load lại
   $('tbody').empty();
   getListDepartments();
 }

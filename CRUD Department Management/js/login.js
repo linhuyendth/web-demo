@@ -1,10 +1,9 @@
-document.getElementById("formLogin").addEventListener("click", function(event){
+document.getElementById("loginBtn").addEventListener("click", function(event){
   event.preventDefault();
   login();
 });
 
 function login() {
-  console.log("ok");
   // get username và password ra
   var username = document.getElementById('username').value;
   var password = document.getElementById('password').value;
