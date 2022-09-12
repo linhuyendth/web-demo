@@ -1,8 +1,13 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
 * {
   box-sizing: border-box;
 }
 
-.header {
+#header {
   padding: 30px;
   text-align: center;
   font-size: 35px;
@@ -10,9 +15,9 @@
   padding: 0;
 }
 
-.footer {
-  color: #ddd;
-  background-color: #333;
-  padding: 10px;
+#footer {
+  padding: 20px;
   text-align: center;
+  background: #333;
+  color: #ccc;
 }

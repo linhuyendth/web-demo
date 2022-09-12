@@ -4,12 +4,13 @@ $(function () {
     window.location.replace("http://127.0.0.1:5500/login.html");
   }
   // còn nếu login rồi thì load nội dung trang
-  $(".header").load("header.html", function () {
+  $("#header").load("header.html", function () {
     // phải load xong header thì mới cho hiển thị tên đăng nhập
     document.getElementById("fullName").innerHTML = localStorage.getItem("FULL_NAME");
   });
-  $(".main").load("home.html");
-  $(".footer").load("footer.html");
+  $("#main").load("home.html");
+  $("#footer").load("footer.html");
+departments = [];
 });
 
 function isLogin() {
@@ -30,12 +31,14 @@ function logout() {
 }
 
 function clickNavHome() {
-  $(".main").load("home.html");
+  $("#main").load("home.html");
+  departments = [];
 }
 
 function clickNavViewListDepartments() {
-  $(".main").load("viewListDepartments.html", function() {
-    buildTable(); // sau khi load trang view list xong thì liền thực hiện function này cho mình
+  $("#main").load("viewListDepartments.html", function() {
+    // sau khi load trang view list xong thì liền thực hiện function này cho 
+    buildTable();
   });
   // chứ để buildTable() ở đây sẽ phải click nav view lần nữa mới chạy
 }
@@ -52,11 +55,8 @@ var minCreatedDate = '';
 var maxCreatedDate = '';
 
 function getListDepartments() {
-  
   var url = 'http://localhost:8080/api/v1/departments';
-  
   url += '?page=' + currentPage + '&size=' + size; 
-  
   url += '&sort=' + sortField + ',' + (isAsc? 'asc':'desc');
   
   var search = document.getElementById('input-search-department').value; // lấy thẳng giá trị search luôn mỗi khi nhập, chứ làm 1 biến rỗng sẽ gây lỗi khi xoá hết thanh search nhưng ko trở về như cũ và sort dc nữa 
@@ -477,7 +477,7 @@ function updateDepartment() {
             showAlertSuccess();
             resetTable();
             buildTable();
-            console.log(data); // hiện ra Updated successfully
+            console.log(data); // hiện ra Updated successfully!
           },
           // if error
           error(jqXHR, textStatus, errorThrown){

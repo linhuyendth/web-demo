@@ -3,10 +3,6 @@ body {
   font-size: 28px;
 }
 
-.header {
-  text-align: center;
-}
-
 #navbar {
   overflow: hidden;
   background-color: #333;
