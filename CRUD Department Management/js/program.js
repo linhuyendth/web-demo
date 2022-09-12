@@ -37,7 +37,7 @@ function clickNavHome() {
 
 function clickNavViewListDepartments() {
   $("#main").load("viewListDepartments.html", function() {
-    // sau khi load trang view list xong thì liền thực hiện function này cho 
+    // sau khi load trang view list xong thì liền thực hiện function này cho mình
     buildTable();
   });
   // chứ để buildTable() ở đây sẽ phải click nav view lần nữa mới chạy
