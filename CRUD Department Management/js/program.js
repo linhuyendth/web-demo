@@ -38,8 +38,8 @@ var sortField = 'modifiedDate';
 // mặc định set desc để khi add sẽ đưa kết quả vừa add lên trang đầu
 var isAsc = false;
 
-var minCreatedDate = "";
-var maxCreatedDate = "";
+var minCreatedDate = '';
+var maxCreatedDate = '';
 
 function getListDepartments() {
   
