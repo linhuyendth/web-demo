@@ -124,12 +124,13 @@ function enterForSearch(event) {
 }
 
 function changeMinCreatedDate(event) {
+  // console.log(event.target.value); // kiểm tra
   minDate = event.target.value;
   resetPage();
   resetSort();
   resetCheckboxAll();
+  // reset lại paging sorting và checkbox trước khi build table
   buildTable();
-  // console.log(event.target.value); // kiểm tra
 }
 
 function changeMaxCreatedDate(event) {
@@ -346,7 +347,7 @@ function save() {
 }
 
 // TH1: save add
-function addDepartment() { // post = create, add
+function addDepartment() {
   // get name department để validate
   var name = document.getElementById("name").value;
   
@@ -373,9 +374,9 @@ function addDepartment() { // post = create, add
         // post những value đã điền từ modal lên data server
         var department = {
           name: name,
-          authorId: 3
+          authorId: localStorage.getItem('ID')
         };
-
+        
         // post data user đã nhập theo dạng json
         $.ajax({
           url: 'http://localhost:8080/api/v1/departments',
