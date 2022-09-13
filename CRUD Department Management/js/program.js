@@ -10,7 +10,7 @@ $(function () {
   });
   $("#main").load("home.html");
   $("#footer").load("footer.html");
-departments = [];
+  departments = [];
 });
 
 function isLogin() {
@@ -51,8 +51,8 @@ var sortField = 'modifiedDate';
 // mặc định set desc để khi add sẽ đưa kết quả vừa add lên trang đầu
 var isAsc = false;
 
-var minCreatedDate = '';
-var maxCreatedDate = '';
+var minDate = '';
+var maxDate = '';
 
 function getListDepartments() {
   var url = 'http://localhost:8080/api/v1/departments';
@@ -65,6 +65,14 @@ function getListDepartments() {
     // ở đây điều kiện trên tương đương với dòng sau:
     // seach !== null && search !== undefined && search.length > 0
     url += '&search=' + search; 
+  }
+
+  if (minDate) {
+    url += '&minDate=' + minDate; 
+  }
+
+  if (maxDate) {
+    url += '&maxDate=' + maxDate; 
   }
   
   // gọi API
@@ -113,6 +121,31 @@ function enterForSearch(event) {
     event.preventDefault();
     handleSearch();
   }
+}
+
+function changeMinCreatedDate(event) {
+  minDate = event.target.value;
+  resetPage();
+  resetSort();
+  resetCheckboxAll();
+  buildTable();
+  // console.log(event.target.value); // kiểm tra
+}
+
+function changeMaxCreatedDate(event) {
+  maxDate = event.target.value;
+  resetPage();
+  resetSort();
+  resetCheckboxAll();
+  buildTable();
+}
+
+function resetFilter() {
+  minDate = '';
+  maxDate = '';
+  // và reset lại cả input
+  document.getElementById('minDate').value = '';
+  document.getElementById('maxDate').value = '';
 }
 
 function renderSortUI() {
@@ -222,7 +255,7 @@ function resetTable() {
   resetPage();
   resetSort();
   resetSearch();
-  // resetFilter();
+  resetFilter();
   resetCheckboxAll();
 }
 

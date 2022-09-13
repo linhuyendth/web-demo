@@ -13,14 +13,26 @@
           </div>
         </div>
       </div>
-      <!-- Search bar -->
-      <div class="input-group mb-2">
-        <input title="Type in a name" type="search" style="border-radius: 0; border-color: #E9E9E9;" class="form-control" placeholder="Search department name or author..." id="input-search-department" onkeyup="enterForSearch(event)"/>
-        <button type="button" class="input-group-text border-0" id="search-addon" style="border-radius: 0; width: 100px; justify-content: center; background-color: #E9E9E9;" onclick="handleSearch()">
-          <i class="fa fa-search"></i>
-        </button>
-      </div>
 
+      <!-- Search bar and Filter -->
+      <div class="row pr-0">
+        <!-- Search bar -->
+        <div class="col-sm-5 input-group mb-2" style="flex: 0 0 40%;">
+          <input title="Type in a name" type="search" style="border-radius: 0; border-color: #E9E9E9;" class="form-control" placeholder="Search..." id="input-search-department" onkeyup="enterForSearch(event)" />
+          <button type="button" class="input-group-text border-0" id="search-addon" style="border-radius: 0; justify-content: center; background-color: #E9E9E9;" onclick="handleSearch()">
+            <i class="fa fa-search"></i>
+          </button>
+        </div>
+        <!-- Filter -->
+        <div class="col-sm-7 pr-0" style="padding-left: 36px;">
+          <label for="minDate">From:</label>
+          <input placeholder="Select date" type="date" id="minDate" class="form-control d-inline" style="width: fit-content; border-radius: 0; border-color: #E9E9E9;" onchange="changeMinCreatedDate(event)">
+          <label for="maxDate" class="ml-4">To:</label>
+          <input placeholder="Select date" type="date" id="maxDate" class="form-control d-inline" style="width: fit-content; border-radius: 0; border-color: #E9E9E9;" onchange="changeMaxCreatedDate(event)">
+        </div>
+      </div>
+      
+      <!-- Table Deparment -->
       <table class="table table-bordered">
         <thead>
           <tr>
