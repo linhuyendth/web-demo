@@ -149,6 +149,11 @@ function resetFilter() {
   document.getElementById('maxDate').value = '';
 }
 
+function refreshTable() {
+  resetTable();
+  buildTable();
+}
+
 function renderSortUI() {
   var sortTypeClass = isAsc? 'fa-sort-asc':'fa-sort-desc';
   // keyword search: add/remove class to element in js

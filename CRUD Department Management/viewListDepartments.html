@@ -13,9 +13,10 @@
           </div>
         </div>
       </div>
-
+      
       <!-- Search bar and Filter -->
       <div class="row pr-0">
+        
         <!-- Search bar -->
         <div class="col-sm-5 input-group mb-2" style="flex: 0 0 40%;">
           <input title="Type in a name" type="search" style="border-radius: 0; border-color: #E9E9E9;" class="form-control" placeholder="Search..." id="input-search-department" onkeyup="enterForSearch(event)" />
@@ -47,7 +48,14 @@
           
         </tbody>
       </table>
-    
+        
+        <!-- REFRESH TABLE -->
+        <span class="table-title">
+          <button type="button" class="btn btn-info btn-modify" style="float: left;" data-toggle="modal" onclick="refreshTable()"><i class="fa fa-refresh"></i> Refresh</button>
+        </span>
+        
+        
+        <!-- PAGING -->
         <nav>
           <ul class="pagination" style="justify-content: right;" id="pagination">
             <!-- <li class="page-item"><a class="page-link" href="#">Previous</a></li>
@@ -62,7 +70,7 @@
   </div>
 </div>
 
-<!-- Modal HTML -->
+<!-- Modal ADD - UPDATE -->
 <div id="myModal" class="modal fade" tabindex="-1">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -86,7 +94,7 @@
           <label for="author" id="authorLabel"><b>Author</b></label>
           <!-- <select required>
               <option></option>
-          </select> -->
+          </select> tính làm thử cho chọn author đã tạo ra dep -->
           <input type="text" name="author" id="author" disabled>
           
           <label for="createdDate" id="createdDateLabel"><b>Created Date</b></label>
