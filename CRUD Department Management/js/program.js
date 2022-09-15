@@ -6,7 +6,7 @@ $(function () {
   // còn nếu login rồi thì load nội dung trang
   $("#header").load("header.html", function () {
     // phải load xong header thì mới cho hiển thị tên đăng nhập
-    document.getElementById("fullName").innerHTML = localStorage.getItem("FULL_NAME");
+    document.getElementById("fullName").innerHTML = storage.getItem("FULL_NAME");
   });
   $("#main").load("home.html");
   $("#footer").load("footer.html");
@@ -14,18 +14,18 @@ $(function () {
 });
 
 function isLogin() {
-  if (localStorage.getItem("ID")) {
+  if (storage.getItem("ID")) {
     return true;
   }
   return false;
 }
 
 function logout() {
-  localStorage.removeItem("ID");
-  localStorage.removeItem("FULL_NAME");
-  localStorage.removeItem("USER_NAME");
-  localStorage.removeItem("EMAIL");
-  localStorage.removeItem("PASSWORD");
+  storage.removeItem("ID");
+  storage.removeItem("FULL_NAME");
+  storage.removeItem("USER_NAME");
+  storage.removeItem("EMAIL");
+  storage.removeItem("PASSWORD");
   // redirect sang trang login
   window.location.replace("http://127.0.0.1:5500/login.html");
 }
@@ -82,7 +82,7 @@ function getListDepartments() {
     contentType: 'application/json',
     dataType: 'json', // datatype return in method get in controller
     beforeSend: function (xhr) {
-      xhr.setRequestHeader("Authorization", "Basic " + btoa(localStorage.getItem("USER_NAME") + ":" + localStorage.getItem("PASSWORD")));
+      xhr.setRequestHeader("Authorization", "Basic " + btoa(storage.getItem("USER_NAME") + ":" + storage.getItem("PASSWORD")));
     },
     success: function(data, textStatus, xhr) {
       // reset list departments
@@ -369,7 +369,7 @@ function addDepartment() {
     contentType: 'application/json',
     dataType: 'json',
     beforeSend: function (xhr) {
-      xhr.setRequestHeader("Authorization", "Basic " + btoa(localStorage.getItem("USER_NAME") + ":" + localStorage.getItem("PASSWORD")));
+      xhr.setRequestHeader("Authorization", "Basic " + btoa(storage.getItem("USER_NAME") + ":" + storage.getItem("PASSWORD")));
     },
     success: function(data, textStatus, xhr) {
       // check data
@@ -379,7 +379,7 @@ function addDepartment() {
         // post những value đã điền từ modal lên data server
         var department = {
           name: name,
-          authorId: localStorage.getItem('ID')
+          authorId: storage.getItem('ID')
         };
         
         // post data user đã nhập theo dạng json
@@ -390,7 +390,7 @@ function addDepartment() {
           contentType: "application/json", // type of body (json, xml, text)
           // dataType: 'json', // datatype return in method post in controller (ở đây đang trả về String nên cmt lại)
           beforeSend: function (xhr) {
-            xhr.setRequestHeader("Authorization", "Basic " + btoa(localStorage.getItem("USER_NAME") + ":" + localStorage.getItem("PASSWORD")));
+            xhr.setRequestHeader("Authorization", "Basic " + btoa(storage.getItem("USER_NAME") + ":" + storage.getItem("PASSWORD")));
           },
           success: function(data, textStatus, xhr) {
             hideModal();
@@ -437,7 +437,7 @@ function openModalUpdate(id) {
     contentType: 'application/json',
     dataType: 'json', // datatype return
     beforeSend: function (xhr) {
-      xhr.setRequestHeader("Authorization", "Basic " + btoa(localStorage.getItem("USER_NAME") + ":" + localStorage.getItem("PASSWORD")));
+      xhr.setRequestHeader("Authorization", "Basic " + btoa(storage.getItem("USER_NAME") + ":" + storage.getItem("PASSWORD")));
     },
     success: function (data, textStatus, xhr) {
       // success
@@ -488,7 +488,7 @@ function updateDepartment() {
     contentType: 'application/json',
     dataType: 'json',
     beforeSend: function (xhr) {
-      xhr.setRequestHeader("Authorization", "Basic " + btoa(localStorage.getItem("USER_NAME") + ":" + localStorage.getItem("PASSWORD")));
+      xhr.setRequestHeader("Authorization", "Basic " + btoa(storage.getItem("USER_NAME") + ":" + storage.getItem("PASSWORD")));
     },
     success: function(data, textStatus, xhr) {
       // check data
@@ -508,7 +508,7 @@ function updateDepartment() {
           // convert value js sang string json
           contentType: "application/json", // type of body (json, xml, text)
           beforeSend: function (xhr) {
-            xhr.setRequestHeader("Authorization", "Basic " + btoa(localStorage.getItem("USER_NAME") + ":" + localStorage.getItem("PASSWORD")));
+            xhr.setRequestHeader("Authorization", "Basic " + btoa(storage.getItem("USER_NAME") + ":" + storage.getItem("PASSWORD")));
           },
           // if success
           success: function(data, textStatus, xhr) {
@@ -562,7 +562,7 @@ function deleteDepartment(id) {
     url: 'http://localhost:8080/api/v1/departments/' + id,
     type: 'DELETE',
     beforeSend: function (xhr) {
-      xhr.setRequestHeader("Authorization", "Basic " + btoa(localStorage.getItem("USER_NAME") + ":" + localStorage.getItem("PASSWORD")));
+      xhr.setRequestHeader("Authorization", "Basic " + btoa(storage.getItem("USER_NAME") + ":" + storage.getItem("PASSWORD")));
     },
     success: function(result) {
       // error
@@ -648,7 +648,7 @@ function deleteAllDepartments() {
       url: 'http://localhost:8080/api/v1/departments?ids=' + ids,
       type: 'DELETE',
       beforeSend: function (xhr) {
-        xhr.setRequestHeader("Authorization", "Basic " + btoa(localStorage.getItem("USER_NAME") + ":" + localStorage.getItem("PASSWORD")));
+        xhr.setRequestHeader("Authorization", "Basic " + btoa(storage.getItem("USER_NAME") + ":" + storage.getItem("PASSWORD")));
       },
       success: function(result) {
         // error

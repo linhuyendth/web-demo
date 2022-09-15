@@ -1,4 +1,10 @@
-document.getElementById("loginBtn").addEventListener("click", function(event){
+$(function() {
+  var isRememberMe = storage.getRememberMe();
+  document.getElementById('rememberMe').checked = isRememberMe;
+});
+
+// với form thì để submit rồi chạy hàm addEventListener()
+document.getElementById("loginBtn").addEventListener("click", function(event) {
   event.preventDefault();
   login();
 });
@@ -41,22 +47,29 @@ function login() {
     // key: Authorization
     // value: Basic + btoa chính là mã của username + password
       
-    // if (success)
+    // if success
     success: function(data, textStatus, xhr) {
       // save data to storage (cookies js)
+
       // https://www.w3schools.com/html/html5_webstorage.asp
-      localStorage.setItem("ID", data.id);
-      localStorage.setItem("FULL_NAME", data.fullName);
-      localStorage.setItem("EMAIL", data.email);
-      localStorage.setItem("USER_NAME", username);
-      localStorage.setItem("PASSWORD", password);
+
+      // save rememberMe
+      var isRememberMe = document.getElementById('rememberMe').checked;
+      storage.saveRememberMe(isRememberMe);
+
+      // save data
+      storage.setItem("ID", data.id);
+      storage.setItem("FULL_NAME", data.fullName);
+      storage.setItem("EMAIL", data.email);
+      storage.setItem("USER_NAME", username);
+      storage.setItem("PASSWORD", password);
       
       // redirect to home page
       // https://www.w3schools.com/howto/howto_js_redirect_webpage.asp
       window.location.replace('http://127.0.0.1:5500/program.html'); // replace luôn để ko back lại login
     },
 
-    // if (error)
+    // if error
     error(jqXHR, textStatus, errorThrown){
       if (jqXHR.status == 401) {
         showErrorMessage("Login fail!");
