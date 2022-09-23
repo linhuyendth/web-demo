@@ -10,38 +10,6 @@ body {
     padding: 0;
 }
 
-.logo {
-    width: 5%;
-}
-
-/* Style the top navigation bar */
-.navbar {
-    margin: 0;
-    display: flex;
-    background-color: #333;
-    /* align-items: baseline; */ /* có thể cho căn các elements theo baseline, ko cần margin-top để đẩy nữa như bên dưới */
-}
-
-/* Style the navigation bar links */
-.navbar a {
-    color: white;
-    padding: 14px 20px;
-    text-decoration: none;
-    text-align: center; /* text-align center để khi kéo nhỏ màn hình thì các links sẽ nằm giữa */
-}
-
-/* Change the color of links on hover */
-.navbar a:hover {
-    background-color: #ddd;
-    color: black;
-}
-
-/* Style the "active" element to highlight the current page */
-/*.navbar a.active {*/
-/*  background-color: cadetblue;*/
-/*  color: white;*/
-/*}*/
-
 .dropbtn {
     color: white;
     padding: 14px 20px;
@@ -112,10 +80,9 @@ body {
 @media screen and (max-width: 700px) {
     .navbar a, .navbar input[type=text], .navbar .search-container button {
         text-align: center;
-        width: 100%;
-        margin: 0;
-        padding: 14px;
+        /* width: 100%; bỏ width để logo ko chiếm hết chiều rộng và sẽ nằm ngang với nút collapse */
     }
+
     .navbar .search-container {
         width: 100%;
     }
@@ -128,9 +95,10 @@ body {
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
     }
-    .logo {
+    
+    /* .navbar-brand .logo {
         display: none;
-    }
+    } */
 }
 
 /*============ BODY WEBSITE ============*/
@@ -158,18 +126,10 @@ body {
 
 /* width: 50% hình sẽ có kích thước bằng 1/2 cột đã chia */
 
-/* Footer */
-#footer {
-    padding: 20px;
-    text-align: center;
-    background-color: #333;
-    color: #ccc;
-}
-
 /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 700px) {
     .row, .navbar {
-        flex-direction: column;
+        flex-direction: row;
     }
 }
 

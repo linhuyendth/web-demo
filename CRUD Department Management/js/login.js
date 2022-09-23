@@ -63,6 +63,7 @@ function login() {
       storage.setItem("EMAIL", data.email);
       storage.setItem("USER_NAME", username);
       storage.setItem("PASSWORD", password);
+      storage.setItem("ROLE", data.role);
       
       // redirect to home page
       // https://www.w3schools.com/howto/howto_js_redirect_webpage.asp

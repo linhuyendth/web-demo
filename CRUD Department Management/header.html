@@ -3,14 +3,41 @@
   <p>Scroll down to see the sticky effect.</p>
 </div> -->
 
-<div id="navbar">
-  <a onclick="clickNavHome()" class="active">Home</a>
-  <!-- <a href="#">About</a> -->
-  <!-- <a href="#">Contact</a> -->
-  <a onclick="clickNavViewListDepartments()">View List Departments</a>
-  <a style="float: right;" onclick="logout()">Logout</a>
-  <a id="fullName" style="float: right;"></a>
-</div>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <!-- href show hand pointer-->
+  <a class="navbar-brand" href="#" onclick="clickNavHome(); return false;">
+    <img class="logo" src="img/logo.png" alt="logo" style="width: 60px">
+    <!-- width percent make distance -->
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="menu">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#" onclick="clickNavHome(); return false;">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Contact</a>
+      </li>
+      <li class="nav-item">
+        <a id="viewListDepartments" class="nav-link" href="#" onclick="clickNavViewListDepartments(); return false;">View List Departments</a>
+        <!-- return false will prevent browser from following the link # -->
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" id="fullName" href="#"></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" onclick="logout(); return false;">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
 
 <!-- sticky navbar -->
 <!-- <div id="navbar">
@@ -22,7 +49,7 @@
 
 <script>
   window.onscroll = function () { myFunction() };
-
+  
   var navbar = document.getElementById("navbar");
   var sticky = navbar.offsetTop;
   

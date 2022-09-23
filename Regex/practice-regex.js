@@ -9,7 +9,10 @@ function removeHyphensC1(str) {
   return str;
 }
 
-// cách dùng regex g
+// cách dùng flag g cho biểu thức /[- .]/
+// có những kí tự đặc biệt như . $ nên muốn chuyển về kí tự thường thì dùng \. or \$
+// dấu $ end (kết thúc của 1 chuỗi)
+// dấu . là chọn tất nên muốn chọn dấu . ko thì dùng \. (escaped character)
 // g : so khớp toàn bộ chuỗi cần tìm
 function removeHyphensC2(str) {
   return str.replace(/-/g,'');

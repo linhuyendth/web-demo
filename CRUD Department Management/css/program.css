@@ -6,18 +6,3 @@ body {
 * {
   box-sizing: border-box;
 }
-
-#header {
-  padding: 30px;
-  text-align: center;
-  font-size: 35px;
-  margin: 0;
-  padding: 0;
-}
-
-#footer {
-  padding: 20px;
-  text-align: center;
-  background: #333;
-  color: #ccc;
-}
