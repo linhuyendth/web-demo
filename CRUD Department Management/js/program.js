@@ -7,6 +7,10 @@ $(function () {
   $("#header").load("header.html", function () {
     // phải load xong header thì mới cho hiển thị tên đăng nhập
     document.getElementById("fullName").innerHTML = storage.getItem("FULL_NAME");
+    // check role để hiển thị <a> view list
+    if (storage.getItem('ROLE') == 'User') {
+      document.getElementById('viewListDepartments').style.display = 'none';
+    }
   });
   $("#main").load("home.html");
   $("#footer").load("footer.html");
